@@ -1,1 +1,7 @@
-Placeholder text
+Jonathan W. 9/19/2019
+  Created the first Unity layout for the game to my branch for the project.
+  The first layout includes:
+    - a built Grid and several Tilemaps for it
+    - set up all the folders for assets
+    - imported an asset pack to use for visual reference temperarily until our art is in 
+    - created the simple movement script (before modifying it to Command Pattern)
