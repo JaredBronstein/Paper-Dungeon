@@ -5,3 +5,6 @@ Paper Dungeon is a top-down RPG dungeon-crawler with a paper/notebook aesthetic.
 
 # Design-Doc
 (link here Jared)
+
+# Process Journal
+(link to the journal here once you make it)
