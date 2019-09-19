@@ -7,4 +7,9 @@ Jonathan W. 9/19/2019
     - created the simple movement script (before modifying it to Command Pattern)
     
   Jared B. 9/19/2019
-  Working on adding both the player and enemy classes utilized for combat. Adding in 2 C# classes outside of Unity to test for  proper interaction. The main, parent class, "Mob" will be utilized as a baseline class that has stats and attacks that an AI opponent will utilize. The player class will inherit these properties as well as have it's own stats such as EXP, level, and stat boosts that will be used to upgrade stats when a level-up happens. The reason why I make the player class a child is because if both enemies and players share the same code for stats, it's much more homogenized, so it should be easier to exchange stat values and minimizes risk of error.
+  Working on adding both the player and enemy classes utilized for combat. Adding in 2 C# classes outside of Unity to test for proper
+  interaction. The main, parent class, "Mob" will be utilized as a baseline class that has stats and attacks that an AI opponent will 
+  utilize. The player class will inherit these properties as well as have it's own stats such as EXP, level, and stat boosts that
+  will be used to upgrade stats when a level-up happens. The reason why I make the player class a child is because if both enemies 
+  and players share the same code for stats, it's much more homogenized, so it should be easier to exchange stat values and minimizes 
+  risk of error.
