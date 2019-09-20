@@ -13,3 +13,11 @@ Jonathan W. 9/19/2019
   will be used to upgrade stats when a level-up happens. The reason why I make the player class a child is because if both enemies 
   and players share the same code for stats, it's much more homogenized, so it should be easier to exchange stat values and minimizes 
   risk of error.
+
+Sophia.A 9/19/2019
+Finished consept art for hero
+-fullu colored
+-Full turn around
+Created basic enemy concept sheet
+-7 types of emenies
+- variety of elemet of enemy  and or defense
