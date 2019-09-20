@@ -6,49 +6,76 @@ public class PlayerController : MonoBehaviour
 {
 
     [SerializeField]
-    double playerSpeed;
+    float playerSpeed;
 
     Transform playerPosition;
+    Collision2D playerCollides;
 
     // Start is called before the first frame update
     void Start()
     {
         playerPosition = GetComponent<Transform>();
+       // physicalObject
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
+        if (Input.GetButton("e"))
+        {
+            interact();
+        }
+        else if (Input.GetButton("w"))
+        {
+            MoveUp();
+        }
+        else if (Input.GetButton("a"))
+        {
+            MoveLeft();
+        }
+        else if (Input.GetButton("s"))
+        {
+            MoveDown();
+        }
+        else if (Input.GetButton("d"))
+        {
+            MoveRight();
+        }
     }
 
-    void MoveUp()
+    //private void OnCollisionEnter2D(Collision2D collision)
+    //{
+    //   if(playerCollides.gameObject.tag == "Borders")
+    //    {
+    //
+    //    }
+    //}
+
+    private void MoveUp()
     {
-       // playerPosition.position.y += playerSpeed;
+        playerPosition.position = new Vector3(playerPosition.position.x, playerPosition.position.y + playerSpeed, playerPosition.position.z);
     }
 
-    void MoveDown()
+    private void MoveDown()
     {
-
+        playerPosition.position = new Vector3(playerPosition.position.x, playerPosition.position.y + -playerSpeed, playerPosition.position.z);
     }
 
-    void MoveLeft()
+    private void MoveLeft()
     {
-
+        playerPosition.position = new Vector3(playerPosition.position.x + -playerSpeed, playerPosition.position.y, playerPosition.position.z);
     }
 
-    void MoveRight()
+    private void MoveRight()
     {
-
+        playerPosition.position = new Vector3(playerPosition.position.x + playerSpeed, playerPosition.position.y, playerPosition.position.z);
     }
 
-    void Interact()
+    private bool interact()
     {
-
+        return true;
     }
 
-    void StartCombat(){ 
-    
-    }
 
 }
