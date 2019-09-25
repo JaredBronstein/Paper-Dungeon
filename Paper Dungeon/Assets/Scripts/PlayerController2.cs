@@ -2,19 +2,42 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerController2 : MonoBehaviour
+public class PlayerController2 : UnitMoveI
 {
-    private MoveUp upButton_;
-    private Movedown downButton_;
-    private Moveleft leftButton_;
-    private Moveright rightButton_;
-
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButton("w")) upButton_.Execute();
-        else if (Input.GetButton("a")) leftButton_.Execute();
-        else if (Input.GetButton("s")) downButton_.Execute();
-        else if (Input.GetButton("d")) rightButton_.Execute();
+        Execute();
     }
+
+
+    protected override void Execute()
+    {
+        if (Input.GetButton("w")) MoveUp();
+        else if (Input.GetButton("a")) MoveLeft();
+        else if (Input.GetButton("s")) MoveDown();
+        else if (Input.GetButton("d")) MoveRight();
+    }
+
+    protected override void MoveUp()
+    {
+        characterPosition.position = new Vector3(characterPosition.position.x, characterPosition.position.y + characterSpeed, characterPosition.position.z);
+
+    }
+    protected override void MoveDown()
+    {
+        characterPosition.position = new Vector3(characterPosition.position.x, characterPosition.position.y + -characterSpeed, characterPosition.position.z);
+
+    }
+    protected override void MoveLeft()
+    {
+        characterPosition.position = new Vector3(characterPosition.position.x + -characterSpeed, characterPosition.position.y, characterPosition.position.z);
+
+    }
+    protected override void MoveRight()
+    {
+        characterPosition.position = new Vector3(characterPosition.position.x + characterSpeed, characterPosition.position.y, characterPosition.position.z);
+
+    }
+
 }
