@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -8,9 +9,24 @@ public class Combat_Controller : MonoBehaviour
     [SerializeField]
     private GameObject Player;
 
-    // Update is called once per frame
+    private PlayerController pc;
+    private Canvas canvas;
+
+    private void Awake()
+    {
+        canvas = this.GetComponent<Canvas>();
+    }
+
     void Update()
     {
-        
+        //BattleCheck();
     }
+
+    //private void BattleCheck()
+    //{
+    //    if (pc.InCombat)
+    //    {
+
+    //    }
+    //}
 }

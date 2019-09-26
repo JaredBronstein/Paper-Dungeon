@@ -20,7 +20,8 @@ public class Mob_Stats : MonoBehaviour
 
     public virtual int Attack()
     {
-        return ATK;
+        int rng = UnityEngine.Random.Range(0, AttackList.Length);
+        return rng;
     }
     public int SpeedCheck()
     {

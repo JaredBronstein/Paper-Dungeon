@@ -8,6 +8,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     float playerSpeed;
 
+    public bool InCombat = false;
+
     Transform playerPosition;
     Collision2D playerCollides;
 
@@ -77,5 +79,12 @@ public class PlayerController : MonoBehaviour
         return true;
     }
 
-
+    public void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+            InCombat = true;
+            Debug.Log("Combat Engaged!");
+        }
+    }
 }

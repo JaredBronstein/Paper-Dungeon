@@ -14,8 +14,4 @@ public class Slime_Stats : Mob_Stats
         WIS = wis;
         SPD = spd;
     }
-    public override int Attack()
-    {
-        return (int)(ATK * 0.75);
-    }
 }

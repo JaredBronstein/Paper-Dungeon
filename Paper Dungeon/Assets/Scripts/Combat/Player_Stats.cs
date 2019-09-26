@@ -14,7 +14,6 @@ public class Player_Stats : Mob_Stats
     [Tooltip("Amount of EXP required to level up. Defaults for Level 2")]
     private int EXPThreshold;
 
-    public bool InCombat = false;
 
     public Player_Stats(int hp, int mp, int atk, int def, int mag, int wis, int spd)
     {
@@ -69,11 +68,5 @@ public class Player_Stats : Mob_Stats
             }
         }
     }
-    public void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.gameObject.CompareTag("Enemy"))
-        {
-            InCombat = true;
-        }
-    }
+
 }
