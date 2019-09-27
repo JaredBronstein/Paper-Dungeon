@@ -9,27 +9,10 @@ public class Player_Stats : Mob_Stats
     private int EXP;
     [SerializeField]
     [Tooltip("The Level of a Character")]
-    private int Level;
+    private int Level = 1;
     [SerializeField]
     [Tooltip("Amount of EXP required to level up. Defaults for Level 2")]
     private int EXPThreshold;
-
-
-    public Player_Stats(int hp, int mp, int atk, int def, int mag, int wis, int spd)
-    {
-        HP = hp;
-        MP = mp;
-        ATK = atk;
-        DEF = def;
-        MAG = mag;
-        WIS = wis;
-        SPD = spd;
-    }
-
-    public override int Attack()
-    {
-        return (int)(ATK * 1.5);
-    }
 
     /// <summary>
     /// When called, levels up the player by increasing level by 1 and setting EXP to zero and setting the new EXP threshold for leveling

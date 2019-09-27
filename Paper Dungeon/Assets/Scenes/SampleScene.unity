@@ -18803,20 +18803,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ef064280bbe76147aa2ee0906dce068, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HP: 0
-  MP: 0
-  ATK: 0
-  DEF: 0
-  MAG: 0
-  WIS: 0
-  SPD: 0
+  Stats: 000000000000000000000000000000000000000000000000
   AttackList: []
-  NameList: []
-  IsAttackList: 
-  StatUsedList: []
-  StatTargetList: []
-  ModifierList: []
-  isPhysList: 
   EXP: 0
   Level: 0
   EXPThreshold: 0
@@ -18894,7 +18882,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1717840246}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.122, y: -0.614, z: -0.546875}
+  m_LocalPosition: {x: 1.101, y: -0.586, z: -0.546875}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
