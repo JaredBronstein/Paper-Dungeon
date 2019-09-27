@@ -11,13 +11,11 @@ public class PlayerController : MonoBehaviour
     public bool InCombat = false;
 
     Transform playerPosition;
-    Collision2D playerCollides;
 
     // Start is called before the first frame update
     void Start()
     {
         playerPosition = GetComponent<Transform>();
-       // physicalObject
     }
 
     // Update is called once per frame
@@ -44,15 +42,9 @@ public class PlayerController : MonoBehaviour
         {
             MoveRight();
         }
+        
     }
 
-    //private void OnCollisionEnter2D(Collision2D collision)
-    //{
-    //   if(playerCollides.gameObject.tag == "Borders")
-    //    {
-    //
-    //    }
-    //}
 
     private void MoveUp()
     {
