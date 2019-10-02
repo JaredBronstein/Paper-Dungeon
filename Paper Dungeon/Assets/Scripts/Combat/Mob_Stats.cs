@@ -7,8 +7,10 @@ public class Mob_Stats : MonoBehaviour
 {
     protected int HP, MP, ATK, DEF, MAG, WIS, SPD;
     public int[] Stats  = new int[7];
+    [Tooltip("Experience Points, gained after combat")]
+    public int EXP;
     [Tooltip("List of Attacks the Mob can use. Formatting is Name,IsAttack,StatUsed,StatTarget,Modifier,isPhys")]
-    public string[] AttackList;
+    public string[] AttackList = new string[5];
 
     //public string[] NameList;
     //public bool[] IsAttackList;
