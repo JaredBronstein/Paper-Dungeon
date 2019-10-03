@@ -8,10 +8,10 @@ public class PuzzleController : MonoBehaviour
 
     //These booleans are checking to see what moves the player has already made.
 
-    public int moveup;
-    public int movedown;
-    public int moveright;
-    public int moveleft;
+    public float moveup;
+    public float movedown;
+    public float moveright;
+    public float moveleft;
 
     public GameObject Up1;
     public GameObject Up2;
@@ -54,7 +54,7 @@ public class PuzzleController : MonoBehaviour
 
     public void Upward()
     {
-        if (Input.GetKeyDown("w"))
+        if (Input.GetKeyDown("up"))
         {
 
                 Up1.transform.Translate(0, moveup, 0);
@@ -64,7 +64,7 @@ public class PuzzleController : MonoBehaviour
  
         }
 
-        if (Input.GetKeyUp("w"))
+        if (Input.GetKeyUp("up"))
         {
 
             Up1.transform.Translate(0, -moveup, 0);
@@ -76,7 +76,7 @@ public class PuzzleController : MonoBehaviour
 
     public void Downward()
     {
-        if (Input.GetKeyDown("s"))
+        if (Input.GetKeyDown("down"))
         {
 
             Down1.transform.Translate(0, movedown, 0);
@@ -86,7 +86,7 @@ public class PuzzleController : MonoBehaviour
 
         }
 
-        if (Input.GetKeyUp("s"))
+        if (Input.GetKeyUp("down"))
         {
 
             Down1.transform.Translate(0, -movedown, 0);
@@ -98,7 +98,7 @@ public class PuzzleController : MonoBehaviour
 
     public void LeftMove()
     {
-        if (Input.GetKeyDown("a"))
+        if (Input.GetKeyDown("left"))
         {
 
             Left1.transform.Translate(moveleft, 0, 0);
@@ -108,7 +108,7 @@ public class PuzzleController : MonoBehaviour
 
         }
 
-        if (Input.GetKeyUp("a"))
+        if (Input.GetKeyUp("left"))
         {
 
             Left1.transform.Translate(-moveleft, 0, 0);
@@ -120,7 +120,7 @@ public class PuzzleController : MonoBehaviour
 
     public void RightMove()
     {
-        if (Input.GetKeyDown("d"))
+        if (Input.GetKeyDown("right"))
         {
 
             Right1.transform.Translate(moveright, 0, 0);
@@ -130,7 +130,7 @@ public class PuzzleController : MonoBehaviour
 
         }
 
-        if (Input.GetKeyUp("d"))
+        if (Input.GetKeyUp("right"))
         {
 
             Right1.transform.Translate(-moveright, 0, 0);
