@@ -7,6 +7,7 @@ public class PlayerController2 : UnitMoveI
 
     public bool InCombat = false;
     public GameObject Opponent;
+    public GameObject CombatController;
 
     // Update is called once per frame
     void Update()
@@ -52,6 +53,7 @@ public class PlayerController2 : UnitMoveI
         {
             Opponent = collision.gameObject;
             InCombat = true;
+            CombatController.gameObject.SetActive(true);
         }
     }
 }

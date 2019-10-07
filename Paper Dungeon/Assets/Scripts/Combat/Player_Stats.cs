@@ -80,6 +80,7 @@ public class Player_Stats : Mob_Stats
                         break;
                 }
             }
+            StatUpdate();
         }
     }
 
