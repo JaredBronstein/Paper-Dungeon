@@ -27,58 +27,43 @@ public class Player_Stats : Mob_Stats
         if(Level < 10)
         {
             Level += 1;
+            Debug.Log("Player has reached level " + Level);
             EXP = 0;
             EXPThreshold += EXPThreshold;
-            //Used for new ability unlocks. Each case is a different level up
+            //Used for new ability and stat unlocks. Each case is a different level up
             switch (Level - 1)
             {
                 case 1:
+                    ATK += 1;
                     break;
                 case 2:
-                    AttackList[2] = "EXPLOSION,true,MAG,HP,5,false";
+                    HP += 5;
+                    ATK += 1;
                     break;
                 case 3:
+                    ATK += 2;
                     break;
                 case 4:
+                    HP += 5;
+                    ATK += 2;
                     break;
                 case 5:
+                    ATK += 2;
                     break;
                 case 6:
+                    HP += 5;
+                    ATK += 3;
                     break;
                 case 7:
+                    ATK += 3;
                     break;
                 case 8:
+                    HP += 5;
+                    ATK += 3;
                     break;
                 case 9:
+                    ATK += 5;
                     break;
-            }
-            //This randomly upgrades the stats
-            for (int i = 0; i <= Random.Range(1, 4); i++)
-            {
-                switch (Random.Range(1, 8))
-                {
-                    case 1:
-                        HP += Random.Range(0, 4);
-                        break;
-                    case 2:
-                        MP += Random.Range(0, 4);
-                        break;
-                    case 3:
-                        ATK += Random.Range(0, 4);
-                        break;
-                    case 4:
-                        DEF += Random.Range(0, 4);
-                        break;
-                    case 5:
-                        MAG += Random.Range(0, 4);
-                        break;
-                    case 6:
-                        WIS += Random.Range(0, 4);
-                        break;
-                    case 7:
-                        SPD += Random.Range(0, 4);
-                        break;
-                }
             }
             StatUpdate();
         }
