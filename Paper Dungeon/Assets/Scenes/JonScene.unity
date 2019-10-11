@@ -18362,6 +18362,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterSpeed: 0.01
   characterPosition: {fileID: 1251825640}
+  InCombat: 0
+  Opponent: {fileID: 0}
+  CombatController: {fileID: 0}
 --- !u!50 &1251825637
 Rigidbody2D:
   serializedVersion: 4
