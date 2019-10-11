@@ -21,21 +21,30 @@ public class Mob_Stats : MonoBehaviour
 
     private string[] temp;
 
+    private void Awake()
+    {
+        StatUpdate();
+    }
+
     /// <summary>
     /// Made to be called in the Combat Controller, used to pass in the attack information depending on input.
     /// </summary>
     /// <param name="AttackNumber">The Attack number from the attack list</param>
     /// <returns>The information of the Attack called</returns>
-    public virtual string[] Attack(int AttackNumber)
+    public string[] Attack(int AttackNumber)
     {
         temp = AttackList[AttackNumber].Split(',');
         return temp;
+    }
+    public int[] StatReturn()
+    {
+        return Stats;
     }
     public int SpeedCheck()
     {
         return SPD + UnityEngine.Random.Range(0, 4);
     }
-    private void StatCheck()
+    protected void StatUpdate()
     {
         Stats[0] = HP;
         Stats[1] = MP;
