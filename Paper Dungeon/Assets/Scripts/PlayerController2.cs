@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class PlayerController2 : UnitMoveI
 {
-
     public bool InCombat = false;
+
     public GameObject Opponent;
     public GameObject CombatController;
 
@@ -45,7 +45,6 @@ public class PlayerController2 : UnitMoveI
     protected override void MoveRight()
     {
         characterPosition.position = new Vector3(characterPosition.position.x + characterSpeed, characterPosition.position.y, characterPosition.position.z);
-
     }
     public void OnTriggerEnter2D(Collider2D collision)
     {
