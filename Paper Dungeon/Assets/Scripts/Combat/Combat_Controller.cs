@@ -77,7 +77,7 @@ public class Combat_Controller : MonoBehaviour
         this.gameObject.SetActive(false);
         Enemy.GetComponent<BoxCollider2D>().enabled = false;
         Enemy.GetComponent<SpriteRenderer>().enabled = false;
-        Enemy.GetComponent<EnemyController>().enabled = false;
+        //Enemy.GetComponent<EnemyController>().enabled = false;
         PS.EXP += MS.EXP;
         PC2.InCombat = false;
         isInCombat = false;
