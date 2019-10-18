@@ -10,6 +10,7 @@ public class UnitMoveI : MonoBehaviour
     [SerializeField]
     protected Transform characterPosition;
 
+
     public UnitMoveI(){ }
     protected virtual void Execute(){ }
     protected virtual void MoveUp() { }
