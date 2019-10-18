@@ -3,32 +3,32 @@ guid: 30b7b4a0f6cbaa04e906fd72dd4bdc06
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 7656013195124188810
-    second: flat_sptire_0
+      213: -583709377530793717
+    second: Idle_Front
   - first:
-      213: -7585413968335626734
-    second: flat_sptire_1
+      213: -982904232830982447
+    second: Walk_1
   - first:
-      213: 2720852275326828232
-    second: flat_sptire_2
+      213: -350908408369970039
+    second: Walk_2
   - first:
-      213: -1724796141982976945
-    second: flat_sptire_3
+      213: 8927261243114348307
+    second: Idle_Back
   - first:
-      213: 6721631040590743401
-    second: flat_sptire_4
+      213: -8454231032502849824
+    second: Back_Walk_1
   - first:
-      213: -6226415416626664221
-    second: flat_sptire_5
+      213: 6989603478650511444
+    second: Back_Walk_2
   - first:
-      213: 6393443803696165065
-    second: flat_sptire_6
+      213: 6357296734009728549
+    second: Idle_Left
   - first:
-      213: 7419846689022464736
-    second: flat_sptire_7
+      213: 1745513361863741258
+    second: Left_Walk_1
   - first:
-      213: -5301329757693583941
-    second: flat_sptire_8
+      213: -2744815086882315914
+    second: Left_Walk_2
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -58,7 +58,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: -1
     aniso: -1
     mipBias: -100
     wrapU: 1
@@ -87,7 +87,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 2
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 4096
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -98,7 +98,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
   - serializedVersion: 2
     buildTarget: Standalone
-    maxTextureSize: 2048
+    maxTextureSize: 4096
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -109,7 +109,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
   - serializedVersion: 2
     buildTarget: Windows Store Apps
-    maxTextureSize: 2048
+    maxTextureSize: 4096
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -122,7 +122,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: flat_sptire_0
+      name: Idle_Front
       rect:
         serializedVersion: 2
         x: 47
@@ -136,14 +136,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 00cf28d7b1c9d6446b4b1dd8dff597d1
-      internalID: 7656013195124188810
+      spriteID: 696d71186ad6268499d6111e9458ad66
+      internalID: -583709377530793717
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: flat_sptire_1
+      name: Walk_1
       rect:
         serializedVersion: 2
         x: 88
@@ -157,14 +157,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0b8494fa79dd6bb4d8b29175576081dd
-      internalID: -7585413968335626734
+      spriteID: 2d9c60ab28deb4341907cc1c2c6d0923
+      internalID: -982904232830982447
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: flat_sptire_2
+      name: Walk_2
       rect:
         serializedVersion: 2
         x: 128
@@ -178,14 +178,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: add98fbb5fda7704e9aa19e77e1a6b8e
-      internalID: 2720852275326828232
+      spriteID: 401067fc60363bd4c9f9038c1b6546e7
+      internalID: -350908408369970039
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: flat_sptire_3
+      name: Idle_Back
       rect:
         serializedVersion: 2
         x: 47
@@ -199,14 +199,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f6157fc8356619d46a24c0d68ba1e29a
-      internalID: -1724796141982976945
+      spriteID: c1ec6e23f3b219943b4375f82a1bef22
+      internalID: 8927261243114348307
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: flat_sptire_4
+      name: Back_Walk_1
       rect:
         serializedVersion: 2
         x: 88
@@ -220,14 +220,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6f69b12e4259cac4493ef9203a90f936
-      internalID: 6721631040590743401
+      spriteID: cacc6ec3102685b41a9e0fb3ac80e9f1
+      internalID: -8454231032502849824
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: flat_sptire_5
+      name: Back_Walk_2
       rect:
         serializedVersion: 2
         x: 128
@@ -241,14 +241,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b419cbeef1f61f045979284c689b5050
-      internalID: -6226415416626664221
+      spriteID: b8386b0320e703042bd2d8884a41b0d4
+      internalID: 6989603478650511444
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: flat_sptire_6
+      name: Idle_Left
       rect:
         serializedVersion: 2
         x: 54
@@ -262,14 +262,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2dc1b53399190b64a87ca153253e3e75
-      internalID: 6393443803696165065
+      spriteID: e5c707ede3aa8da47a2a57683227b746
+      internalID: 6357296734009728549
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: flat_sptire_7
+      name: Left_Walk_1
       rect:
         serializedVersion: 2
         x: 96
@@ -283,14 +283,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 86d2e806ff8a7794e923b1fe743c8ac5
-      internalID: 7419846689022464736
+      spriteID: 903f54104add7994fadd657f288793ce
+      internalID: 1745513361863741258
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: flat_sptire_8
+      name: Left_Walk_2
       rect:
         serializedVersion: 2
         x: 137
@@ -304,8 +304,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ccde770eccd987141824aea956051114
-      internalID: -5301329757693583941
+      spriteID: a416930a6a868fc42b10ce48c36edb06
+      internalID: -2744815086882315914
       vertices: []
       indices: 
       edges: []
@@ -313,7 +313,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 8c96a45fa64b3b44e8addc6dcb933df7
+    spriteID: 022e3735c7699a148954a6002b85c4cf
     internalID: 0
     vertices: []
     indices: 
