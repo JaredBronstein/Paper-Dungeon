@@ -10,14 +10,14 @@ public class Combat_Controller : MonoBehaviour
     [SerializeField]
     private GameObject Player;
 
-    [SerializeField]
-    private GameObject buttonPrefab;
+    //[SerializeField]
+    //private GameObject buttonPrefab;
 
     private GameObject Enemy;
 
     private string[] AttackInfo = new string[6];
 
-    private int NumberofPlayerAttacks = 1;
+    //private int NumberofPlayerAttacks = 1;
     private int[] PlayerStats = new int[7];
     private int[] MobStats = new int[7];
 
@@ -38,11 +38,11 @@ public class Combat_Controller : MonoBehaviour
 
     void Update()
     {
-        if(PS.AttackList[NumberofPlayerAttacks] != null)
-        {
-            AddButton();
-            NumberofPlayerAttacks++;
-        }
+        //if(PS.AttackList[NumberofPlayerAttacks] != null)
+        //{
+        //    AddButton();
+        //    NumberofPlayerAttacks++;
+        //}
         if (PC2.InCombat && !isInCombat)
         {
             isInCombat = true;
@@ -173,12 +173,12 @@ public class Combat_Controller : MonoBehaviour
     {
         Enemy.GetComponent<BoxCollider2D>().enabled = true;
     }
-    private void AddButton()
-    {
-        GameObject button = (GameObject)Instantiate(buttonPrefab);
-        button.transform.SetParent(this.transform); //this sets the parent of the button. Change to specific panel button will appear in
-        button.GetComponent<Button>().onClick.AddListener(delegate { GetInput(NumberofPlayerAttacks); });
-    }
+    //private void AddButton()
+    //{
+    //    GameObject button = (GameObject)Instantiate(buttonPrefab);
+    //    button.transform.SetParent(this.transform); //this sets the parent of the button. Change to specific panel button will appear in
+    //    button.GetComponent<Button>().onClick.AddListener(delegate { GetInput(NumberofPlayerAttacks); });
+    //}
     private void ConvertAttack()
     {
         isAttack = (AttackInfo[1] == "true");

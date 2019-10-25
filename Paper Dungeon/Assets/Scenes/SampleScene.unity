@@ -21653,6 +21653,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Finished Combat UI
       objectReference: {fileID: 0}
+    - target: {fileID: 5575371099439000435, guid: 9836e18f4b3db1d49aeee5b1775d7b46,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5575371099439000439, guid: 9836e18f4b3db1d49aeee5b1775d7b46,
         type: 3}
       propertyPath: m_LocalPosition.x
