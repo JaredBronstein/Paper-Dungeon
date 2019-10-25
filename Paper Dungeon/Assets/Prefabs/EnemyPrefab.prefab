@@ -154,8 +154,9 @@ GameObject:
   m_Component:
   - component: {fileID: 845267315088820579}
   - component: {fileID: 845267315088820578}
-  - component: {fileID: 845267315088820581}
   - component: {fileID: 845267315088820580}
+  - component: {fileID: 2034630230}
+  - component: {fileID: 2034630232}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -229,21 +230,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &845267315088820581
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 845267315088820577}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 13f1463d7ca730c49b6bfd2825b3388a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  HP: 5
-  ATK: 1
-  EXP: 1
 --- !u!61 &845267315088820580
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -270,6 +256,39 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.29, y: 0.24}
   m_EdgeRadius: 0
+--- !u!114 &2034630230
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 845267315088820577}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 323875f060745264188645165e21e348, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  characterSpeed: 0.02
+  characterPosition: {fileID: 845267315088820579}
+  LeftBorder: {fileID: 845267316437636592}
+  RightBorder: {fileID: 845267314961754909}
+  TopBorder: {fileID: 845267314959900706}
+  BottomBorder: {fileID: 845267316294518131}
+--- !u!114 &2034630232
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 845267315088820577}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13f1463d7ca730c49b6bfd2825b3388a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HP: 5
+  ATK: 1
+  EXP: 1
 --- !u!1 &845267315670869799
 GameObject:
   m_ObjectHideFlags: 0
@@ -279,7 +298,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 845267315670869817}
-  - component: {fileID: 845267315670869816}
   m_Layer: 0
   m_Name: EnemyPrefab
   m_TagString: Untagged
@@ -303,24 +321,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &845267315670869816
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 845267315670869799}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 323875f060745264188645165e21e348, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  characterSpeed: 0.02
-  characterPosition: {fileID: 845267315088820579}
-  LeftBorder: {fileID: 845267316437636592}
-  RightBorder: {fileID: 845267314961754909}
-  TopBorder: {fileID: 845267314959900706}
-  BottomBorder: {fileID: 845267316294518131}
 --- !u!1 &845267315778774900
 GameObject:
   m_ObjectHideFlags: 0

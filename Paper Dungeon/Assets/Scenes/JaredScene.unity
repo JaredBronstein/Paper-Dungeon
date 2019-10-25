@@ -196,7 +196,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 95406b6737b66479a80d172766f8bac5, type: 3}
+  m_Sprite: {fileID: -583709377530793717, guid: 30b7b4a0f6cbaa04e906fd72dd4bdc06,
+    type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -215,7 +216,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 56744247}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.013, y: -0.989, z: 0}
+  m_LocalPosition: {x: 0.2, y: -0.989, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -238,7 +239,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.05, y: 0.19}
+    oldSize: {x: 0.36, y: 0.65}
     newSize: {x: 0.05, y: 0.19}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -260,8 +261,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HP: 10
+  MP: 0
   ATK: 1
+  DEF: 0
+  MAG: 0
+  WIS: 0
+  SPD: 0
   EXP: 0
+  AttackList:
+  - 
+  - 
+  - 
+  - 
+  - 
   Level: 1
   EXPThreshold: 1
 --- !u!50 &56744253
@@ -393,18 +405,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 2030186857}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1804066838 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3471180447198459631, guid: 9bb8bb31b50bef748b050c04c8b6c36f,
-    type: 3}
-  m_PrefabInstance: {fileID: 2030186857}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1804066837}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f5ec3e526ce6c93408d33778e860cafb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1883131654
 GameObject:
   m_ObjectHideFlags: 0
@@ -482,11 +482,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Combat Canvas
-      objectReference: {fileID: 0}
-    - target: {fileID: 493264022996366001, guid: 9bb8bb31b50bef748b050c04c8b6c36f,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3471180447198459631, guid: 9bb8bb31b50bef748b050c04c8b6c36f,
         type: 3}
@@ -600,33 +595,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 493264021612896739, guid: 9bb8bb31b50bef748b050c04c8b6c36f,
         type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 493264021612896739, guid: 9bb8bb31b50bef748b050c04c8b6c36f,
-        type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 493264021612896739, guid: 9bb8bb31b50bef748b050c04c8b6c36f,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 493264021612896739, guid: 9bb8bb31b50bef748b050c04c8b6c36f,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1804066838}
-    - target: {fileID: 493264021612896739, guid: 9bb8bb31b50bef748b050c04c8b6c36f,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: GetInput
-      objectReference: {fileID: 0}
-    - target: {fileID: 493264021612896739, guid: 9bb8bb31b50bef748b050c04c8b6c36f,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9bb8bb31b50bef748b050c04c8b6c36f, type: 3}
@@ -697,5 +667,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 845267315088820578, guid: 1ba26c84b9e136649a48ef1e17abb736,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -7884875766322400370, guid: b563e50d6ce4fbf4c9aee7337a9e0e32,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1ba26c84b9e136649a48ef1e17abb736, type: 3}

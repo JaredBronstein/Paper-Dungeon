@@ -11,6 +11,7 @@ public class Player_Stats : Mob_Stats
     [Tooltip("Amount of EXP required to level up. Defaults for Level 2")]
     private int EXPThreshold;
 
+
     private void Update()
     {
         if(EXP >= EXPThreshold)
@@ -39,6 +40,7 @@ public class Player_Stats : Mob_Stats
                 case 2:
                     HP += 5;
                     ATK += 1;
+                    AttackList[1] = "Spark,true,MAG,HP,1.2,false";
                     break;
                 case 3:
                     ATK += 2;
