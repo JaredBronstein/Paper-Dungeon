@@ -47,18 +47,27 @@ public class PlayerController2 : UnitMoveI
         characterPosition.position = new Vector3(characterPosition.position.x, characterPosition.position.y + characterSpeed, characterPosition.position.z);
         animator.SetBool("Is_Moving", true);
         animator.SetBool("Move_Up", true);
+        animator.SetBool("Move_Down", false);
+        animator.SetBool("Move_Left", false);
+        animator.SetBool("Move_Right", false);
     }
     protected override void MoveDown()
     {
         characterPosition.position = new Vector3(characterPosition.position.x, characterPosition.position.y + -characterSpeed, characterPosition.position.z);
         animator.SetBool("Is_Moving", true);
         animator.SetBool("Move_Down", true);
+        animator.SetBool("Move_Up", false);
+        animator.SetBool("Move_Left", false);
+        animator.SetBool("Move_Right", false);
     }
     protected override void MoveLeft()
     {
         characterPosition.position = new Vector3(characterPosition.position.x + -characterSpeed, characterPosition.position.y, characterPosition.position.z);
         animator.SetBool("Is_Moving", true);
         animator.SetBool("Move_Left", true);
+        animator.SetBool("Move_Down", false);
+        animator.SetBool("Move_Up", false);
+        animator.SetBool("Move_Right", false);
     }
     protected override void MoveRight()
     {
@@ -66,6 +75,9 @@ public class PlayerController2 : UnitMoveI
 
         animator.SetBool("Is_Moving", true);
         animator.SetBool("Move_Right", true);
+        animator.SetBool("Move_Down", false);
+        animator.SetBool("Move_Left", false);
+        animator.SetBool("Move_Up", false);
 
     }
     public void OnTriggerEnter2D(Collider2D collision)
