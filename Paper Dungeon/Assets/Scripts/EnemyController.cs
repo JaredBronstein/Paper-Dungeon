@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,21 +7,47 @@ public class EnemyController : UnitMoveI
 {
     [SerializeField]
     private GameObject LeftBorder, RightBorder, TopBorder, BottomBorder;
+    [SerializeField]
+    private Sprite Grey, Yellow, Red;
+
+    private SpriteRenderer slimeRenderer;
+    private Animator slimeAnimator;
+    private Mob_Stats stats;
 
     private int Direction;
     private bool CanLeft, CanRight, CanUp, CanDown;
 
     private void Awake()
     {
+        slimeAnimator = this.GetComponent<Animator>();
+        stats = this.GetComponent<Mob_Stats>();
+        SetAnimation();
         InvokeRepeating("Execute", 0, 0.5f);
     }
+
+    private void SetAnimation()
+    {
+        if (stats.StatReturn()[2] > 4)
+        {
+            slimeAnimator.SetBool("Is_Red", true);
+        }
+        else if (stats.StatReturn()[4] > 4)
+        {
+            slimeAnimator.SetBool("Is_Yellow", true);
+        }
+        else
+        {
+            slimeAnimator.SetBool("Is_Gray", true);
+        }
+    }
+
     private void Update()
     {
         CanLeft = LeftBorder.GetComponent<EnemyTrigger>().isActive;
         CanRight = RightBorder.GetComponent<EnemyTrigger>().isActive;
         CanUp = TopBorder.GetComponent<EnemyTrigger>().isActive;
         CanDown = BottomBorder.GetComponent<EnemyTrigger>().isActive;
-        Direction = Random.Range(0,4);
+        Direction = UnityEngine.Random.Range(0,4);
     }
     protected override void Execute()
     {
