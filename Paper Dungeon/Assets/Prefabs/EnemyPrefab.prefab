@@ -159,7 +159,7 @@ GameObject:
   - component: {fileID: 2034630232}
   - component: {fileID: 1705035478}
   m_Layer: 0
-  m_Name: Enemy
+  m_Name: Slime
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -220,7 +220,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -3322549506307623855, guid: b563e50d6ce4fbf4c9aee7337a9e0e32,
+  m_Sprite: {fileID: -7884875766322400370, guid: b563e50d6ce4fbf4c9aee7337a9e0e32,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -276,6 +276,9 @@ MonoBehaviour:
   RightBorder: {fileID: 845267314961754909}
   TopBorder: {fileID: 845267314959900706}
   BottomBorder: {fileID: 845267316294518131}
+  Grey: {fileID: -7060523541247738292, guid: b563e50d6ce4fbf4c9aee7337a9e0e32, type: 3}
+  Yellow: {fileID: 8712805358186729586, guid: b563e50d6ce4fbf4c9aee7337a9e0e32, type: 3}
+  Red: {fileID: 2390474335770192810, guid: b563e50d6ce4fbf4c9aee7337a9e0e32, type: 3}
 --- !u!114 &2034630232
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -294,7 +297,7 @@ MonoBehaviour:
   DEF: 0
   MAG: 0
   WIS: 0
-  SPD: 0
+  SPD: 1
   EXP: 1
   AttackList:
   - 

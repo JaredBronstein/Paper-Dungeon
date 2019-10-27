@@ -11,6 +11,14 @@ public class Player_Stats : Mob_Stats
     [Tooltip("Amount of EXP required to level up. Defaults for Level 2")]
     private int EXPThreshold;
 
+    private void Awake()
+    {
+        AttackList[0] = "Snip,true,2,0,1,true";
+        AttackList[1] = "Crumple,true,4,3,1,false";
+        AttackList[2] = "Tear,true,6,0,1.1,true";
+        AttackList[3] = "Fold,false,3,0,1,NA";
+        AttackList[4] = "Ink Splot,true,4,0,2,false";
+    }
 
     private void Update()
     {
@@ -29,42 +37,63 @@ public class Player_Stats : Mob_Stats
         {
             Level += 1;
             Debug.Log("Player has reached level " + Level);
-            EXP = 0;
+            EXP -= EXPThreshold;
             EXPThreshold += EXPThreshold;
             //Used for new ability and stat unlocks. Each case is a different level up
             switch (Level - 1)
             {
                 case 1:
+                    HP += 2;
                     ATK += 1;
+                    MAG += 1;
+                    SPD += 1;
                     break;
                 case 2:
-                    HP += 5;
+                    HP += 3;
                     ATK += 1;
-                    AttackList[1] = "Spark,true,MAG,HP,1.2,false";
+                    WIS += 1;
+                    SPD += 1;
                     break;
                 case 3:
                     ATK += 2;
+                    DEF += 1;
+                    MAG += 1;
+                    WIS += 1;
                     break;
                 case 4:
                     HP += 5;
-                    ATK += 2;
+                    DEF += 2;
+                    SPD += 3;
                     break;
                 case 5:
                     ATK += 2;
+                    MAG += 5;
+                    WIS += 2;
                     break;
                 case 6:
                     HP += 5;
                     ATK += 3;
+                    DEF += 3;
+                    WIS += 2;
+                    SPD += 1;
                     break;
                 case 7:
                     ATK += 3;
+                    MAG += 6;
+                    WIS += 2;
                     break;
                 case 8:
                     HP += 5;
                     ATK += 3;
+                    SPD += 2;
                     break;
                 case 9:
+                    HP += 5;
                     ATK += 5;
+                    DEF += 3;
+                    MAG += 7;
+                    WIS += 2;
+                    SPD += 2;
                     break;
             }
             StatUpdate();

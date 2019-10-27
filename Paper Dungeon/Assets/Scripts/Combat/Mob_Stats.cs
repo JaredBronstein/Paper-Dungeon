@@ -11,18 +11,25 @@ public class Mob_Stats : MonoBehaviour
     [Tooltip("Experience Points, gained after combat")]
     public int EXP;
     [Tooltip("List of Attacks the Mob can use. Formatting is Name,IsAttack,StatUsed,StatTarget,Modifier,isPhys")]
-    public string[] AttackList = new string[5];
+    public string[] AttackList = new string[6];
 
     private string[] temp;
 
     private void Awake()
     {
         StatUpdate();
-        AttackList[0] = "Attack,true,ATK,HP,1,true";
+        AttackList[0] = "Attack,true,2,0,1,true";
     }
     public string[] Attack(int AttackNumber)
     {
-        temp = AttackList[AttackNumber].Split(',');
+        if(AttackList[AttackNumber] != null)
+        {
+            temp = AttackList[AttackNumber].Split(',');
+        }
+        else
+        {
+            temp = AttackList[0].Split(',');
+        }
         return temp;
     }
     public int[] StatReturn()
@@ -40,7 +47,7 @@ public class Mob_Stats : MonoBehaviour
         Stats[6] = SPD;
         for (int i = 0; i < Stats.Length; i++)
         {
-            Debug.Log(this.gameObject.name + " Stat " + i + "'s value is " + Stats[i]);
+            //Debug.Log(this.gameObject.name + " Stat " + i + "'s value is " + Stats[i]);
         }
     }
 }
