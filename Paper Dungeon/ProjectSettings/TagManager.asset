@@ -7,6 +7,7 @@ TagManager:
   - Borders
   - Enemy
   - Boundary
+  - Lever
   layers:
   - Default
   - TransparentFX
@@ -52,4 +53,7 @@ TagManager:
     locked: 0
   - name: Borders
     uniqueID: 106784379
+    locked: 0
+  - name: Levers
+    uniqueID: 349954441
     locked: 0
