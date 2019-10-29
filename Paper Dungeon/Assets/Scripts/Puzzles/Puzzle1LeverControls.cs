@@ -172,6 +172,14 @@ public class Puzzle1LeverControls : ILeverPuzzles
             Switch3image.sprite = leverOff;
             Switch4image.sprite = leverOn;
         }
+        else if (Switch1active == true && Switch2active == false && Switch3active == true && Switch4active == true)
+        {
+            states = 2;
+            Switch1image.sprite = leverOn;
+            Switch2image.sprite = leverOff;
+            Switch3image.sprite = leverOn;
+            Switch4image.sprite = leverOn;
+        }
     }
 
     protected override void SwitchThisLever()
