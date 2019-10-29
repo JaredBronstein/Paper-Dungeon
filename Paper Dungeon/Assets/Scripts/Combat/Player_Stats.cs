@@ -96,7 +96,6 @@ public class Player_Stats : Mob_Stats
                     SPD += 2;
                     break;
             }
-            StatUpdate();
         }
     }
 

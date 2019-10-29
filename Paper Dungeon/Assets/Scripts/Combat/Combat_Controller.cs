@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -10,6 +11,12 @@ public class Combat_Controller : MonoBehaviour
     private GameObject Player;
     [SerializeField]
     private Text textbox;
+    [SerializeField]
+    private Button[] buttons = new Button[6];
+    [SerializeField]
+    private Image[] EnemyImages = new Image[3];
+    [SerializeField]
+    private Image BossImage, Background;
 
     private GameObject Enemy;
 
@@ -19,12 +26,14 @@ public class Combat_Controller : MonoBehaviour
 
     private bool isInCombat = false;
     private bool isPhys, isAttack;
-    private int StatUsed, StatTarget, Damage, MaxHP;
+    private int StatUsed, StatTarget, Damage, MaxHP, Choice;
     private double Modifier;
 
     private PlayerController2 PC2;
     private Player_Stats PS;
     private Mob_Stats MS;
+    private EnemyController EC;
+    private BossController BC;
     #endregion
 
     private void Awake()
@@ -45,74 +54,113 @@ public class Combat_Controller : MonoBehaviour
 
     private void GetEnemy()
     {
-        Enemy = PC2.Opponent;
+        Enemy = PC2.Opponent;        
         MS = Enemy.GetComponent<Mob_Stats>();
+        if(Enemy.name.Contains("Slime"))
+        {
+            EC = Enemy.GetComponent<EnemyController>();
+            Background.sprite = EC.SetBackground();
+            BossImage.sprite = null;
+            EnemyImages[0].sprite = EnemyImages[1].sprite = EnemyImages[2].sprite = EC.SetBattleSprite();
+        }
+        else
+        {
+            BC = Enemy.GetComponent<BossController>();
+            Background.sprite = BC.SetBackground();
+            BossImage.sprite = BC.SetBattleSprite();
+            EnemyImages[0].sprite = EnemyImages[1].sprite = EnemyImages[2].sprite = null;
+        }
     }
 
     private void CombatStart()
     {
         //Debug.Log("Combat has Begun!");
-        Enemy.GetComponent<EnemyController>().enabled = false;
+        if (EC != null)
+        {
+            EC.CancelInvoke();
+        }
         PlayerStats = PS.StatReturn();
         MobStats = MS.StatReturn();
         MaxHP = PlayerStats[0];
         textbox.text = "A wild " + Enemy.name + " has appeared!";
-        for(int i=0; i <PlayerStats.Length; i++)
-        {
-            Debug.Log("Player Stat " + i + " is " + PlayerStats[i]);
-        }
     }
 
-    public void GetInput(int Choice)
+    public void GetInput(int choice)
     {
+        Choice = choice;
         Debug.Log("Player Health: " + PlayerStats[0]);
         Debug.Log("Slime Health: " + MobStats[0]);
-        this.GetComponentInChildren<Button>().enabled = false;
-        if(PlayerStats[6] >= MobStats[6])
+        foreach(Button button in buttons)
         {
-            PlayerAction(Choice);
-            StartCoroutine(Delay(1.0f));
+            button.gameObject.SetActive(false);
+        }
+        Invoke("ActionOne", 1.0f);
+    }
+    private void ActionOne()
+    {
+        if (PlayerStats[6] >= MobStats[6])
+        {
+            PlayerActionAnnounce();
             if (MobStats[0] <= 0)
             {
-                CombatEnd();
+                Invoke("Win", 1.0f);
             }
             else
             {
-                MobAction();
-                if (PlayerStats[0] <= 0)
-                {
-                    GameOver();
-                }
+                Invoke("ActionTwo", 2.0f);
             }
         }
         else
         {
-            MobAction();
-            StartCoroutine(Delay(1.0f));
+            MobActionAnnounce();
             if (PlayerStats[0] <= 0)
             {
-                GameOver();
+                Invoke("Lose", 1.0f);
             }
             else
             {
-                PlayerAction(Choice);
-                if (MobStats[0] <= 0)
-                {
-                    CombatEnd();
-                }
+                Invoke("ActionTwo", 2.0f);
             }
         }
-        this.GetComponentInChildren<Button>().enabled = true;
     }
-
-    public void PlayerAction(int Selection)
+    private void ActionTwo()
     {
-        AttackInfo = PS.Attack(Selection);
+        if (PlayerStats[6] >= MobStats[6])
+        {
+            MobActionAnnounce();
+            if (PlayerStats[0] <= 0)
+            {
+                Invoke("Lose", 1.0f);
+            }
+        }
+        else
+        {
+            PlayerActionAnnounce();
+            if (MobStats[0] <= 0)
+            {
+                Invoke("Win", 1.0f);
+            }
+        }
+        Invoke("ReEnableButtons", 1.0f);
+    }
+    private void ReEnableButtons()
+    {
+        foreach (Button button in buttons)
+        {
+            button.gameObject.SetActive(true);
+        }
+    }
+    private void PlayerActionAnnounce()
+    {
+        AttackInfo = PS.Attack(Choice);
         //Debug.Log(AttackInfo[0] + " " + AttackInfo[1] + " " + AttackInfo[2] + " " + AttackInfo[3] + " " + AttackInfo[4] + " " + AttackInfo[5]);
         ConvertAttack();
-        Debug.Log("Player uses " + AttackInfo[0]);
+        //Debug.Log("Player uses " + AttackInfo[0]);
         textbox.text = "Player uses " + AttackInfo[0];
-        StartCoroutine(Delay(1.0f));
+        Invoke("PlayerActionCommit", 1.0f);
+    }
+    private void PlayerActionCommit()
+    {
         if (isAttack)
         {
             if (isPhys)
@@ -124,39 +172,42 @@ public class Combat_Controller : MonoBehaviour
                 Damage = Convert.ToInt32(PlayerStats[StatUsed] * Modifier - MobStats[5]);
             }
             MobStats[StatTarget] -= Damage;
-            Debug.Log("Player does " + Damage + " damage.");
+            //Debug.Log("Player does " + Damage + " damage.");
             textbox.text = "Player does " + Damage + " damage.";
         }
         else
         {
             PlayerStats[StatTarget] += Convert.ToInt32(PlayerStats[StatUsed] * Modifier);
         }
-        if(PlayerStats[0] > MaxHP)
+        if (PlayerStats[0] > MaxHP)
         {
             PlayerStats[0] = MaxHP;
         }
     }
 
-    public void MobAction()
+    private void MobActionAnnounce()
     {
         AttackInfo = MS.Attack(0);
         ConvertAttack();
-        Debug.Log("Enemy uses " + AttackInfo[0]);
-        textbox.text = "Enemy uses " + AttackInfo[0];
-        StartCoroutine(Delay(1.0f));
+        //Debug.Log(Enemy.name + " uses " + AttackInfo[0]);
+        textbox.text = Enemy.name + " uses " + AttackInfo[0];
+        Invoke("MobActionCommit", 1.0f);
+    }
+    private void MobActionCommit()
+    {
         if (isAttack)
         {
             if (isPhys)
             {
-                 Damage = Convert.ToInt32(MobStats[StatUsed] * Modifier - PlayerStats[3]);
+                Damage = Convert.ToInt32(MobStats[StatUsed] * Modifier - PlayerStats[3]);
             }
             else
             {
                 Damage = Convert.ToInt32(MobStats[StatUsed] * Modifier - PlayerStats[5]);
             }
             PlayerStats[StatTarget] -= Damage;
-            Debug.Log("Slime does " + Damage + " damage.");
-            textbox.text = "Slime does " + Damage + " damage.";
+            //Debug.Log(Enemy.name + " does " + Damage + " damage.");
+            textbox.text = Enemy.name + " does " + Damage + " damage.";
         }
         else
         {
@@ -164,10 +215,19 @@ public class Combat_Controller : MonoBehaviour
         }
     }
 
-    private void CombatEnd()
+    private void Win()
     {
         textbox.text = "You win! You gained  " + MS.EXP + " experience points";
-        StartCoroutine(Delay(1.0f));
+        Invoke("CombatEnd", 1.0f);
+    }
+    private void Lose()
+    {
+        textbox.text = "You have been defeated. You lose.";
+        Invoke("GameOver", 1.0f);
+    }
+
+    private void CombatEnd()
+    {
         this.gameObject.SetActive(false);
         Enemy.GetComponent<BoxCollider2D>().enabled = false;
         Enemy.GetComponent<SpriteRenderer>().enabled = false;
@@ -185,17 +245,23 @@ public class Combat_Controller : MonoBehaviour
         //}
     }
 
-    public void Flee()
+    public void FleeAnnounce()
     {
         textbox.text = "You ran away safely";
-        StartCoroutine(Delay(1.0f));
+        Invoke("FleeCommit", 1.0f);
+    }
+    private void FleeCommit()
+    {
         textbox.text = "";
         this.gameObject.SetActive(false);
         Enemy.GetComponent<EnemyController>().enabled = true;
         Enemy.GetComponent<BoxCollider2D>().enabled = false;
         isInCombat = false;
         PC2.InCombat = false;
-        StartCoroutine(Delay(2.0f));
+        Invoke("ReEnableEnemy", 2.0f);
+    }
+    private void ReEnableEnemy()
+    {
         Enemy.GetComponent<BoxCollider2D>().enabled = true;
     }
 
@@ -212,10 +278,5 @@ public class Combat_Controller : MonoBehaviour
         Modifier = Convert.ToDouble(AttackInfo[4]);
         isPhys = (AttackInfo[5] == "true");
         Debug.Log("Attack Stats: " + AttackInfo[0] + "," + AttackInfo[1] + "," + AttackInfo[2] + "," + AttackInfo[3] + "," + AttackInfo[4] + "," + AttackInfo[5]);
-    }
-
-    IEnumerator Delay(float delay)
-    {
-        yield return new WaitForSeconds(delay);
     }
 }

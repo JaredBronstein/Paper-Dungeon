@@ -17,7 +17,6 @@ public class Mob_Stats : MonoBehaviour
 
     private void Awake()
     {
-        StatUpdate();
         AttackList[0] = "Attack,true,2,0,1,true";
     }
     public string[] Attack(int AttackNumber)
@@ -34,10 +33,6 @@ public class Mob_Stats : MonoBehaviour
     }
     public int[] StatReturn()
     {
-        return Stats;
-    }
-    protected void StatUpdate()
-    {
         Stats[0] = HP;
         Stats[1] = MP;
         Stats[2] = ATK;
@@ -45,9 +40,6 @@ public class Mob_Stats : MonoBehaviour
         Stats[4] = MAG;
         Stats[5] = WIS;
         Stats[6] = SPD;
-        for (int i = 0; i < Stats.Length; i++)
-        {
-            //Debug.Log(this.gameObject.name + " Stat " + i + "'s value is " + Stats[i]);
-        }
+        return Stats;
     }
 }

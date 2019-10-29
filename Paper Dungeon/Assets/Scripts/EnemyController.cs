@@ -8,7 +8,7 @@ public class EnemyController : UnitMoveI
     [SerializeField]
     private GameObject LeftBorder, RightBorder, TopBorder, BottomBorder;
     [SerializeField]
-    private Sprite Grey, Yellow, Red;
+    private Sprite Grey, Yellow, Red, Background;
 
     private SpriteRenderer slimeRenderer;
     private Animator slimeAnimator;
@@ -40,8 +40,27 @@ public class EnemyController : UnitMoveI
             slimeAnimator.SetBool("Is_Gray", true);
         }
     }
+    public Sprite SetBattleSprite()
+    {
+        if (stats.StatReturn()[2] > 4)
+        {
+            return Red;
+        }
+        else if (stats.StatReturn()[4] > 4)
+        {
+            return Yellow;
+        }
+        else
+        {
+            return Grey;
+        }
+    }
+    public Sprite SetBackground()
+    {
+        return Background;
+    }
 
-    private void Update()
+    protected virtual void Update()
     {
         CanLeft = LeftBorder.GetComponent<EnemyTrigger>().isActive;
         CanRight = RightBorder.GetComponent<EnemyTrigger>().isActive;

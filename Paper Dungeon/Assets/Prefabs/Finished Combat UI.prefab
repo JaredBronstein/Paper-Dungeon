@@ -330,7 +330,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &5575371099439000439
 RectTransform:
   m_ObjectHideFlags: 0
@@ -426,7 +426,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Player: {fileID: 0}
-  textbox: {fileID: 0}
+  textbox: {fileID: 8678626255956395610}
+  buttons:
+  - {fileID: 5575371100269869089}
+  - {fileID: 5575371100230123917}
+  - {fileID: 5575371100435437119}
+  - {fileID: 5575371099721023155}
+  - {fileID: 5575371099544942774}
+  - {fileID: 5575371100684026790}
 --- !u!1 &5575371099544942772
 GameObject:
   m_ObjectHideFlags: 0
@@ -440,7 +447,7 @@ GameObject:
   - component: {fileID: 5575371099544942761}
   - component: {fileID: 5575371099544942774}
   m_Layer: 5
-  m_Name: Ink Spot Button
+  m_Name: Ink Splot Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
