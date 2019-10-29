@@ -60,7 +60,7 @@ public class Combat_Controller : MonoBehaviour
         {
             EC = Enemy.GetComponent<EnemyController>();
             Background.sprite = EC.SetBackground();
-            BossImage.sprite = null;
+            BossImage.enabled = false;
             EnemyImages[0].sprite = EnemyImages[1].sprite = EnemyImages[2].sprite = EC.SetBattleSprite();
         }
         else
@@ -68,7 +68,7 @@ public class Combat_Controller : MonoBehaviour
             BC = Enemy.GetComponent<BossController>();
             Background.sprite = BC.SetBackground();
             BossImage.sprite = BC.SetBattleSprite();
-            EnemyImages[0].sprite = EnemyImages[1].sprite = EnemyImages[2].sprite = null;
+            EnemyImages[0].enabled = EnemyImages[1].enabled = EnemyImages[2].enabled = false;
         }
     }
 

@@ -330,7 +330,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &5575371099439000439
 RectTransform:
   m_ObjectHideFlags: 0
@@ -434,6 +434,12 @@ MonoBehaviour:
   - {fileID: 5575371099721023155}
   - {fileID: 5575371099544942774}
   - {fileID: 5575371100684026790}
+  EnemyImages:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  BossImage: {fileID: 5575371099776796254}
+  Background: {fileID: 5575371099843929776}
 --- !u!1 &5575371099544942772
 GameObject:
   m_ObjectHideFlags: 0
@@ -945,7 +951,7 @@ GameObject:
   - component: {fileID: 5575371099776796241}
   - component: {fileID: 5575371099776796254}
   m_Layer: 5
-  m_Name: Image
+  m_Name: Boss Position
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

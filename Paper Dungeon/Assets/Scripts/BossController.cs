@@ -18,7 +18,7 @@ public class BossController : MonoBehaviour
     private void Blink()
     {
         animator.SetBool("CanBlink", true);
-        //animator.SetBool("CanBlink", false);
+        animator.SetBool("CanBlink", false);
     }
     public Sprite SetBattleSprite()
     {
