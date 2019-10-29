@@ -38,12 +38,14 @@ public class Combat_Controller : MonoBehaviour
 
     private void Awake()
     {
+        //Gets the Scripts from the Player
         PC2 = Player.GetComponent<PlayerController2>();
         PS = Player.GetComponent<Player_Stats>();
     }
 
     void Update()
     {
+        //Checks to see if the player is in combat and the combat UI isn't on. If true, begin combat
         if (PC2.InCombat && !isInCombat)
         {
             isInCombat = true;
@@ -56,6 +58,8 @@ public class Combat_Controller : MonoBehaviour
     {
         Enemy = PC2.Opponent;        
         MS = Enemy.GetComponent<Mob_Stats>();
+        //if it's a slime, make the background normal, disable the boss sprite and the enemy images all slimes.
+        //If it's a boss, make the background spooky, disable the enemy images, and set the boss sprite to the boss.
         if(Enemy.name.Contains("Slime"))
         {
             EC = Enemy.GetComponent<EnemyController>();
@@ -75,6 +79,7 @@ public class Combat_Controller : MonoBehaviour
     private void CombatStart()
     {
         //Debug.Log("Combat has Begun!");
+        //Gets Slime to stop moving when combat starts
         if (EC != null)
         {
             EC.CancelInvoke();
@@ -85,17 +90,24 @@ public class Combat_Controller : MonoBehaviour
         textbox.text = "A wild " + Enemy.name + " has appeared!";
     }
 
+    /// <summary>
+    /// Gets the Players input and starts the sequence. First it disables buttons, does the first action, then the second, then re-enables the buttons for the next turn
+    /// </summary>
+    /// <param name="choice">Button input is passed into this</param>
     public void GetInput(int choice)
     {
         Choice = choice;
-        Debug.Log("Player Health: " + PlayerStats[0]);
-        Debug.Log("Slime Health: " + MobStats[0]);
+        //Debug.Log("Player Health: " + PlayerStats[0]);
+        //Debug.Log("Slime Health: " + MobStats[0]);
         foreach(Button button in buttons)
         {
             button.gameObject.SetActive(false);
         }
         Invoke("ActionOne", 1.0f);
     }
+    /// <summary>
+    /// Checks who goes first, and if anyone died game over or victory respectively.
+    /// </summary>
     private void ActionOne()
     {
         if (PlayerStats[6] >= MobStats[6])
@@ -123,6 +135,9 @@ public class Combat_Controller : MonoBehaviour
             }
         }
     }
+    /// <summary>
+    /// Check who goes second, same rules apply from ActionOne()
+    /// </summary>
     private void ActionTwo()
     {
         if (PlayerStats[6] >= MobStats[6])
@@ -150,6 +165,9 @@ public class Combat_Controller : MonoBehaviour
             button.gameObject.SetActive(true);
         }
     }
+    /// <summary>
+    /// Tells the Textbox to say what the player's doing
+    /// </summary>
     private void PlayerActionAnnounce()
     {
         AttackInfo = PS.Attack(Choice);
@@ -159,6 +177,9 @@ public class Combat_Controller : MonoBehaviour
         textbox.text = "Player uses " + AttackInfo[0];
         Invoke("PlayerActionCommit", 1.0f);
     }
+    /// <summary>
+    /// Does what the player wants to do
+    /// </summary>
     private void PlayerActionCommit()
     {
         if (isAttack)
@@ -184,7 +205,9 @@ public class Combat_Controller : MonoBehaviour
             PlayerStats[0] = MaxHP;
         }
     }
-
+    /// <summary>
+    /// Tells the textbox to say what the mob's doing
+    /// </summary>
     private void MobActionAnnounce()
     {
         AttackInfo = MS.Attack(0);
@@ -193,6 +216,9 @@ public class Combat_Controller : MonoBehaviour
         textbox.text = Enemy.name + " uses " + AttackInfo[0];
         Invoke("MobActionCommit", 1.0f);
     }
+    /// <summary>
+    /// Does what the mob wants to do
+    /// </summary>
     private void MobActionCommit()
     {
         if (isAttack)
@@ -225,7 +251,9 @@ public class Combat_Controller : MonoBehaviour
         textbox.text = "You have been defeated. You lose.";
         Invoke("GameOver", 1.0f);
     }
-
+    /// <summary>
+    /// Ends combat, disables enemy, and increases Player EXP
+    /// </summary>
     private void CombatEnd()
     {
         this.gameObject.SetActive(false);
@@ -269,7 +297,9 @@ public class Combat_Controller : MonoBehaviour
     {
         Debug.Log("DEAD");
     }
-
+    /// <summary>
+    /// Converts attackinfo into usable variables for actions
+    /// </summary>
     private void ConvertAttack()
     {
         isAttack = (AttackInfo[1] == "true");

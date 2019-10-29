@@ -14,7 +14,7 @@ public class BossController : MonoBehaviour
         animator = this.GetComponent<Animator>();
         InvokeRepeating("Blink", 3,3);
     }
-
+    //Allows Boss to blink
     private void Blink()
     {
         animator.SetBool("CanBlink", true);

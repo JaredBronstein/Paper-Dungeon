@@ -23,7 +23,9 @@ public class EnemyController : UnitMoveI
         stats = this.GetComponent<Mob_Stats>();
         InvokeRepeating("Execute", 0, 0.5f);
     }
-
+    /// <summary>
+    /// Sets the Slimes animation based on it's own statistics
+    /// </summary>
     private void SetAnimation()
     {
         if (stats.StatReturn()[2] > 4)
@@ -45,6 +47,10 @@ public class EnemyController : UnitMoveI
             slimeAnimator.SetBool("Is_Gray", true);
         }
     }
+    /// <summary>
+    /// Sets the sprite in the Combat UI
+    /// </summary>
+    /// <returns>The Sprite</returns>
     public Sprite SetBattleSprite()
     {
         if (stats.StatReturn()[2] > 4)
@@ -74,6 +80,9 @@ public class EnemyController : UnitMoveI
         CanDown = BottomBorder.GetComponent<EnemyTrigger>().isActive;
         Direction = UnityEngine.Random.Range(0,4);
     }
+    /// <summary>
+    /// Moves Slime randomly
+    /// </summary>
     protected override void Execute()
     {
         switch(Direction)
