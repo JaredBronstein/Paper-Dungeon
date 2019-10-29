@@ -38,7 +38,7 @@ public class Puzzle1LeverControls : ILeverPuzzles
         Switch1active = false;
         Switch2active = false;
         Switch3active = false;
-        Switch1active = false;
+        Switch4active = false;
 
         states = 0;
     }
@@ -170,7 +170,7 @@ public class Puzzle1LeverControls : ILeverPuzzles
             Switch1image.sprite = leverOff;
             Switch2image.sprite = leverOn;
             Switch3image.sprite = leverOff;
-            Switch4image.sprite = leverOff;
+            Switch4image.sprite = leverOn;
         }
     }
 
