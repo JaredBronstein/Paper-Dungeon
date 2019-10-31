@@ -8,6 +8,7 @@ TagManager:
   - Enemy
   - Boundary
   - Lever
+  - Metaball_liquid
   layers:
   - Default
   - TransparentFX
@@ -18,7 +19,7 @@ TagManager:
   - 
   - 
   - Enemies
-  - 
+  - InkFlow
   - 
   - 
   - 
@@ -56,4 +57,7 @@ TagManager:
     locked: 0
   - name: Levers
     uniqueID: 349954441
+    locked: 0
+  - name: Ink
+    uniqueID: 3878739
     locked: 0
