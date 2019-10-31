@@ -11,8 +11,7 @@ public class Lever3 : MonoBehaviour
     public bool leverActivated;
 
     public GameObject platform1;
-    public GameObject platform2;
-    public GameObject platform3;
+
     public GameObject inkborders;
     public SpriteRenderer leversprite;
 
@@ -39,15 +38,15 @@ public class Lever3 : MonoBehaviour
                 {
                     Debug.Log("Player activates lever");
                     leverActivated = true;
-                    platform1.transform.Translate(moveleft, 0, 0);
-                    inkborders.transform.Translate(0, 100, 0);
+                    platform1.transform.Translate(0, moveleft, 0);
+
                 }
                 else
                 {
                     Debug.Log("Player turns off lever");
                     leverActivated = false;
-                    platform1.transform.Translate(moveright, 0, 0);
-                    inkborders.transform.Translate(0, borderreturn, 0);
+                    platform1.transform.Translate(0, moveright, 0);
+
                 }
             }
         }

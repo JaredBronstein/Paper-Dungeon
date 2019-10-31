@@ -4,20 +4,21 @@ using UnityEngine;
 
 public class Level1 : MonoBehaviour
 {
+    // Start is called before the first frame update
     public Sprite lever_0;
     public Sprite lever_1;
 
     public bool leverActivated;
 
     public GameObject platform1;
-    public GameObject platform2;
-    public GameObject platform3;
+
     public GameObject inkborders;
     public SpriteRenderer leversprite;
 
-    private float moveleft = -.5f;
-    private float moveright = .5f;
+    public float moveon;
+    public float moveoff;
     private float borderreturn = -100f;
+    private float originalborder = 100f;
 
     // Start is called before the first frame update
     void Start()
@@ -38,13 +39,16 @@ public class Level1 : MonoBehaviour
                 {
                     Debug.Log("Player activates lever");
                     leverActivated = true;
+                    platform1.transform.Translate(moveoff, 0, 0);
+                    inkborders.transform.Translate(0, borderreturn, 0);
 
                 }
                 else
                 {
                     Debug.Log("Player turns off lever");
                     leverActivated = false;
-
+                    platform1.transform.Translate(moveon, 0, 0);
+                    inkborders.transform.Translate(0, originalborder, 0);
                 }
             }
         }

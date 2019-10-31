@@ -11,14 +11,14 @@ public class Lever2 : MonoBehaviour
     public bool leverActivated;
 
     public GameObject platform1;
-    public GameObject platform2;
-    public GameObject platform3;
+
     public GameObject inkborders;
     public SpriteRenderer leversprite;
 
-    private float moveleft = -.5f;
-    private float moveright = .5f;
+    public float moveon;
+    public float moveoff;
     private float borderreturn = -100f;
+    private float originalborder = 100f;
 
     // Start is called before the first frame update
     void Start()
@@ -39,15 +39,16 @@ public class Lever2 : MonoBehaviour
                 {
                     Debug.Log("Player activates lever");
                     leverActivated = true;
-                    platform1.transform.Translate(moveleft, 0, 0);
-                    inkborders.transform.Translate(0, 100, 0);
+                    platform1.transform.Translate(0, moveoff, 0);
+                    inkborders.transform.Translate(0, borderreturn, 0);
+
                 }
                 else
                 {
                     Debug.Log("Player turns off lever");
                     leverActivated = false;
-                    platform1.transform.Translate(moveright, 0, 0);
-                    inkborders.transform.Translate(0, borderreturn, 0);
+                    platform1.transform.Translate(0, moveon, 0);
+                    inkborders.transform.Translate(0, originalborder, 0);
                 }
             }
         }
