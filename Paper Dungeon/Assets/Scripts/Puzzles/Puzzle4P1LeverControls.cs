@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//Made by Jonathan Way
+// follows the same pattern as puzzle1LeverControls but doesnt need to change the transform of the levers
+// puzzle 4 is broken into two parts but the code is basically the same, the check pattern for the levers had to be different though so they were split
 public class Puzzle4P1LeverControls : ILeverPuzzles
 {
     [SerializeField]

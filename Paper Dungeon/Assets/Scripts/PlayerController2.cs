@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//made by jonathan way, updated by jared bronstein for combat script purposes
+//simple code to allow the player to move around and interact with objects
 public class PlayerController2 : UnitMoveI
 {
     public bool InCombat = false;
@@ -22,7 +24,7 @@ public class PlayerController2 : UnitMoveI
         Execute();
     }
 
-
+    //checks if the player has put any input into the input system (project settings only has keyboard input set up for now)
     protected override void Execute()
     {
         if(!InCombat)
@@ -33,6 +35,7 @@ public class PlayerController2 : UnitMoveI
             else if (Input.GetButton("d")) MoveRight();
             else
             {
+                //animation parameters to go along with the actual movement
                 animator.SetBool("Is_Moving", false);
                 animator.SetBool("Move_Up", false);
                 animator.SetBool("Move_Down", false);
@@ -42,6 +45,7 @@ public class PlayerController2 : UnitMoveI
         }
     }
 
+    //these tell the animator which animation to play depending on the characters direction
     protected override void MoveUp()
     {
         characterPosition.position = new Vector3(characterPosition.position.x, characterPosition.position.y + characterSpeed, characterPosition.position.z);
