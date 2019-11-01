@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class InkPuzzle1LeverScript : MonoBehaviour
 {
+
     public Sprite lever_0;
     public Sprite lever_1;
 

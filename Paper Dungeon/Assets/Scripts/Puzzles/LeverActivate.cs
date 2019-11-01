@@ -11,11 +11,14 @@ public class LeverActivate : MonoBehaviour
     [SerializeField]
     GameObject buttonPrompt;
 
+    AudioSource leverNoise;
+
     // Start is called before the first frame update
     void Start()
     {
         leverActivated = false;
         buttonPrompt.SetActive(false);
+        leverNoise = this.GetComponent<AudioSource>();
     } 
 
     private void OnTriggerStay2D(Collider2D collision)
@@ -25,6 +28,7 @@ public class LeverActivate : MonoBehaviour
             buttonPrompt.SetActive(true);
             if (Input.GetButtonDown("Activate"))
             {
+                leverNoise.Play();
                 if (leverActivated == false)
                 {
                     leverActivated = true;

@@ -36,6 +36,8 @@ public class Combat_Controller : MonoBehaviour
     private Mob_Stats MS;
     private EnemyController EC;
     private BossController BC;
+
+    public int input;
     #endregion
 
     private void Awake()
@@ -51,6 +53,7 @@ public class Combat_Controller : MonoBehaviour
         if (PC2.InCombat && !isInCombat)
         {
             isInCombat = true;
+            ReEnableButtons();
             GetEnemy();
             CombatStart();
         }
@@ -102,9 +105,8 @@ public class Combat_Controller : MonoBehaviour
     /// Gets the Players input and starts the sequence. First it disables buttons, does the first action, then the second, then re-enables the buttons for the next turn
     /// </summary>
     /// <param name="choice">Button input is passed into this</param>
-    public void GetInput(int choice)
+    private void GetInput()
     {
-        Choice = choice;
         Debug.Log("Player Health: " + PlayerStats[0]);
         Debug.Log("Slime Health: " + MobStats[0]);
         foreach(Button button in buttons)
@@ -324,5 +326,11 @@ public class Combat_Controller : MonoBehaviour
         Modifier = Convert.ToDouble(AttackInfo[4]);
         isPhys = (AttackInfo[5] == "true");
         Debug.Log("Attack Stats: " + AttackInfo[0] + "," + AttackInfo[1] + "," + AttackInfo[2] + "," + AttackInfo[3] + "," + AttackInfo[4] + "," + AttackInfo[5]);
+    }
+
+    public void GetInputForAudio(int choice)
+    {
+        Choice = choice;
+        Invoke("GetInput", 2.0f);
     }
 }

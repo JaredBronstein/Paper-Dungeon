@@ -11,12 +11,14 @@ public class PlayerController2 : UnitMoveI
 
     public GameObject Opponent;
     public GameObject CombatController;
+    public bool enemyNoiseActive;
 
     private Animator animator;
 
     private void Awake()
     {
         animator = this.GetComponent<Animator>();
+        enemyNoiseActive = false;
     }
 
     // Update is called once per frame
