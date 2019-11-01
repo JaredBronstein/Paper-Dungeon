@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//Made by Jonathan Way
+// follows the same pattern as puzzle1LeverControls but doesnt need to change the transform of the levers
 public class Puzzle3LeverControls : ILeverPuzzles
 {
     [SerializeField]

@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//made by jonathan way
+// simple template for anything that moves in the game, can be used by enemy AI or the player controller
 public class UnitMoveI : MonoBehaviour
 {
     [SerializeField]

@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//made by jonathan way
+//simple code on every lever that lets the player turn it on or off, if anything needs to know the state of a lever it should reference that levers version of this code
 public class LeverActivate : MonoBehaviour
 {
     public bool leverActivated;

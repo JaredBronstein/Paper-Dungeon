@@ -46,13 +46,12 @@ public class Player_Stats : Mob_Stats
                     HP += 2;
                     ATK += 1;
                     MAG += 1;
-                    SPD += 1;
+                    SPD += 2;
                     break;
                 case 2:
                     HP += 3;
                     ATK += 1;
                     WIS += 1;
-                    SPD += 1;
                     break;
                 case 3:
                     ATK += 2;
@@ -79,18 +78,20 @@ public class Player_Stats : Mob_Stats
                     break;
                 case 7:
                     ATK += 3;
+                    DEF += 1;
                     MAG += 6;
                     WIS += 2;
                     break;
                 case 8:
                     HP += 5;
                     ATK += 3;
+                    DEF += 1;
                     SPD += 2;
                     break;
                 case 9:
                     HP += 5;
                     ATK += 5;
-                    DEF += 3;
+                    DEF += 2;
                     MAG += 7;
                     WIS += 2;
                     SPD += 2;

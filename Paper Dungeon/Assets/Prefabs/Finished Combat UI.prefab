@@ -330,7 +330,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &5575371099439000439
 RectTransform:
   m_ObjectHideFlags: 0
@@ -435,9 +435,9 @@ MonoBehaviour:
   - {fileID: 5575371099544942774}
   - {fileID: 5575371100684026790}
   EnemyImages:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 5575371099056334476}
+  - {fileID: 5575371099099086795}
+  - {fileID: 5575371099622178611}
   BossImage: {fileID: 5575371099776796254}
   Background: {fileID: 5575371099843929776}
 --- !u!1 &5575371099544942772
@@ -452,6 +452,7 @@ GameObject:
   - component: {fileID: 5575371099544942760}
   - component: {fileID: 5575371099544942761}
   - component: {fileID: 5575371099544942774}
+  - component: {fileID: 943323492}
   m_Layer: 5
   m_Name: Ink Splot Button
   m_TagString: Untagged
@@ -573,6 +574,20 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &943323492
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5575371099544942772}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52309790d79e02a47b03dba7d8f81d73, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Textbox: {fileID: 8678626255956395610}
+  Description: Cause an Inksplotion with MAG to deal staining damage
 --- !u!1 &5575371099591730538
 GameObject:
   m_ObjectHideFlags: 0
@@ -739,6 +754,7 @@ GameObject:
   - component: {fileID: 5575371099721023157}
   - component: {fileID: 5575371099721023154}
   - component: {fileID: 5575371099721023155}
+  - component: {fileID: 60220988}
   m_Layer: 5
   m_Name: Fold Button
   m_TagString: Untagged
@@ -860,6 +876,20 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &60220988
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5575371099721023153}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52309790d79e02a47b03dba7d8f81d73, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Textbox: {fileID: 8678626255956395610}
+  Description: Fold yourself up to recover HP using DEF
 --- !u!1 &5575371099775452513
 GameObject:
   m_ObjectHideFlags: 0
@@ -1338,6 +1368,7 @@ GameObject:
   - component: {fileID: 5575371100230123919}
   - component: {fileID: 5575371100230123916}
   - component: {fileID: 5575371100230123917}
+  - component: {fileID: 1244665879}
   m_Layer: 5
   m_Name: Crumple button
   m_TagString: Untagged
@@ -1459,6 +1490,20 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &1244665879
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5575371100230123915}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52309790d79e02a47b03dba7d8f81d73, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Textbox: {fileID: 8678626255956395610}
+  Description: Crumple the enemy with your MAG to decrease their DEF
 --- !u!1 &5575371100269869103
 GameObject:
   m_ObjectHideFlags: 0
@@ -1471,6 +1516,7 @@ GameObject:
   - component: {fileID: 5575371100269869091}
   - component: {fileID: 5575371100269869088}
   - component: {fileID: 5575371100269869089}
+  - component: {fileID: 315880029}
   m_Layer: 5
   m_Name: Snip Button
   m_TagString: Untagged
@@ -1592,6 +1638,20 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &315880029
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5575371100269869103}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52309790d79e02a47b03dba7d8f81d73, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Textbox: {fileID: 8678626255956395610}
+  Description: Snip your foe using ATK to cut away the competition
 --- !u!1 &5575371100435437117
 GameObject:
   m_ObjectHideFlags: 0
@@ -1604,6 +1664,7 @@ GameObject:
   - component: {fileID: 5575371100435437105}
   - component: {fileID: 5575371100435437118}
   - component: {fileID: 5575371100435437119}
+  - component: {fileID: 991134187}
   m_Layer: 5
   m_Name: Tear Button
   m_TagString: Untagged
@@ -1725,6 +1786,20 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &991134187
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5575371100435437117}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52309790d79e02a47b03dba7d8f81d73, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Textbox: {fileID: 8678626255956395610}
+  Description: Rip the enemy at high speeds using SPD to increase damage
 --- !u!1 &5575371100578308109
 GameObject:
   m_ObjectHideFlags: 0
@@ -1785,6 +1860,7 @@ GameObject:
   - component: {fileID: 5575371100684026776}
   - component: {fileID: 5575371100684026777}
   - component: {fileID: 5575371100684026790}
+  - component: {fileID: 287703631}
   m_Layer: 5
   m_Name: Flee Button
   m_TagString: Untagged
@@ -1906,6 +1982,20 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &287703631
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5575371100684026788}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52309790d79e02a47b03dba7d8f81d73, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Textbox: {fileID: 8678626255956395610}
+  Description: RUN AWAY!
 --- !u!1 &7157138078826292702
 GameObject:
   m_ObjectHideFlags: 0
