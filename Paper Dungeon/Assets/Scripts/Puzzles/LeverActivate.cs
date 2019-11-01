@@ -8,30 +8,40 @@ public class LeverActivate : MonoBehaviour
 {
     public bool leverActivated;
 
+    [SerializeField]
+    GameObject buttonPrompt;
+
     // Start is called before the first frame update
     void Start()
     {
         leverActivated = false;
+        buttonPrompt.SetActive(false);
     } 
 
     private void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            Debug.Log("Player in range");
+            buttonPrompt.SetActive(true);
             if (Input.GetButtonDown("Activate"))
             {
                 if (leverActivated == false)
                 {
-                    Debug.Log("Player activates lever");
                     leverActivated = true;
                 }
                 else
                 {
-                    Debug.Log("Player turns off lever");
                     leverActivated = false;
                 }
             }
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            buttonPrompt.SetActive(false);
         }
     }
 }

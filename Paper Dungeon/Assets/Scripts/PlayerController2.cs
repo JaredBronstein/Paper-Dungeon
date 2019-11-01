@@ -6,6 +6,7 @@ using UnityEngine;
 //simple code to allow the player to move around and interact with objects
 public class PlayerController2 : UnitMoveI
 {
+
     public bool InCombat = false;
 
     public GameObject Opponent;
@@ -27,7 +28,7 @@ public class PlayerController2 : UnitMoveI
     //checks if the player has put any input into the input system (project settings only has keyboard input set up for now)
     protected override void Execute()
     {
-        if(!InCombat)
+        if (!InCombat)
         {
             if (Input.GetButton("w")) MoveUp();
             else if (Input.GetButton("a")) MoveLeft();
@@ -42,6 +43,14 @@ public class PlayerController2 : UnitMoveI
                 animator.SetBool("Move_Left", false);
                 animator.SetBool("Move_Right", false);
             }
+        }
+        else
+        {
+            animator.SetBool("Is_Moving", false);
+            animator.SetBool("Move_Up", false);
+            animator.SetBool("Move_Down", false);
+            animator.SetBool("Move_Left", false);
+            animator.SetBool("Move_Right", false);
         }
     }
 
