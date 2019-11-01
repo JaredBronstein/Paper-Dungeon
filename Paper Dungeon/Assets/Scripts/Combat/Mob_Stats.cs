@@ -47,6 +47,7 @@ public class Mob_Stats : MonoBehaviour
         Stats[4] = MAG;
         Stats[5] = WIS;
         Stats[6] = SPD;
+        Debug.Log("Returning Stats!");
         return Stats;
     }
 }

@@ -280,7 +280,7 @@ MonoBehaviour:
   Grey: {fileID: -7060523541247738292, guid: b563e50d6ce4fbf4c9aee7337a9e0e32, type: 3}
   Yellow: {fileID: 8712805358186729586, guid: b563e50d6ce4fbf4c9aee7337a9e0e32, type: 3}
   Red: {fileID: 2390474335770192810, guid: b563e50d6ce4fbf4c9aee7337a9e0e32, type: 3}
-  Background: {fileID: 0}
+  Background: {fileID: 21300000, guid: 3192650295dc4644eba3e7409f81eb2c, type: 3}
 --- !u!114 &2034630232
 MonoBehaviour:
   m_ObjectHideFlags: 0

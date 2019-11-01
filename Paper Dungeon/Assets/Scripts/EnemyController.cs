@@ -21,6 +21,7 @@ public class EnemyController : UnitMoveI
     {
         slimeAnimator = this.GetComponent<Animator>();
         stats = this.GetComponent<Mob_Stats>();
+        SetAnimation();
         InvokeRepeating("Execute", 0, 0.5f);
     }
     /// <summary>
@@ -28,13 +29,13 @@ public class EnemyController : UnitMoveI
     /// </summary>
     private void SetAnimation()
     {
-        if (stats.StatReturn()[2] > 4)
+        if (stats.StatReturn()[2] >= 4)
         {
             slimeAnimator.SetBool("Is_Red", true);
             slimeAnimator.SetBool("Is_Yellow", false);
             slimeAnimator.SetBool("Is_Gray", false);
         }
-        else if (stats.StatReturn()[4] > 4)
+        else if (stats.StatReturn()[4] >= 4)
         {
             slimeAnimator.SetBool("Is_Red", false);
             slimeAnimator.SetBool("Is_Yellow", true);
@@ -53,11 +54,11 @@ public class EnemyController : UnitMoveI
     /// <returns>The Sprite</returns>
     public Sprite SetBattleSprite()
     {
-        if (stats.StatReturn()[2] > 4)
+        if (stats.StatReturn()[2] >= 4)
         {
             return Red;
         }
-        else if (stats.StatReturn()[4] > 4)
+        else if (stats.StatReturn()[4] >= 4)
         {
             return Yellow;
         }
@@ -73,7 +74,6 @@ public class EnemyController : UnitMoveI
 
     protected virtual void Update()
     {
-        SetAnimation();
         CanLeft = LeftBorder.GetComponent<EnemyTrigger>().isActive;
         CanRight = RightBorder.GetComponent<EnemyTrigger>().isActive;
         CanUp = TopBorder.GetComponent<EnemyTrigger>().isActive;
