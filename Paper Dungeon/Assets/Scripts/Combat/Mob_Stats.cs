@@ -17,7 +17,14 @@ public class Mob_Stats : MonoBehaviour
 
     private void Awake()
     {
-        AttackList[0] = "Attack,true,2,0,1,true";
+        if(ATK > DEF)
+        {
+            AttackList[0] = "Attack,true,2,0,1,true";
+        }
+        else
+        {
+            AttackList[0] = "Magic Attack,true,4,0,1,false";
+        }
     }
     public string[] Attack(int AttackNumber)
     {
@@ -40,6 +47,7 @@ public class Mob_Stats : MonoBehaviour
         Stats[4] = MAG;
         Stats[5] = WIS;
         Stats[6] = SPD;
+        Debug.Log("Returning Stats!");
         return Stats;
     }
 }

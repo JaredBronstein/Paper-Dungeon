@@ -120,66 +120,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &60220983 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5575371099721023153, guid: 9836e18f4b3db1d49aeee5b1775d7b46,
-    type: 3}
-  m_PrefabInstance: {fileID: 7871728110837160172}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &60220988
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 60220983}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 52309790d79e02a47b03dba7d8f81d73, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Textbox: {fileID: 873104851}
-  Description: Fold yourself up to recover HP using DEF
---- !u!1 &287703626 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5575371100684026788, guid: 9836e18f4b3db1d49aeee5b1775d7b46,
-    type: 3}
-  m_PrefabInstance: {fileID: 7871728110837160172}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &287703631
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 287703626}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 52309790d79e02a47b03dba7d8f81d73, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Textbox: {fileID: 873104851}
-  Description: RUN AWAY!
---- !u!1 &315880024 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5575371100269869103, guid: 9836e18f4b3db1d49aeee5b1775d7b46,
-    type: 3}
-  m_PrefabInstance: {fileID: 7871728110837160172}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &315880029
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 315880024}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 52309790d79e02a47b03dba7d8f81d73, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Textbox: {fileID: 873104851}
-  Description: Snip your foe using ATK to cut away the competition
 --- !u!1 &384528721
 GameObject:
   m_ObjectHideFlags: 0
@@ -269,84 +209,12 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 7871728110837160172}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &873104851 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8678626255956395610, guid: 9836e18f4b3db1d49aeee5b1775d7b46,
-    type: 3}
-  m_PrefabInstance: {fileID: 7871728110837160172}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &895594592 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1438694641811626850, guid: 025255de80981634ca6cddb244045cdb,
     type: 3}
   m_PrefabInstance: {fileID: 274308887791198640}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &943323487 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5575371099544942772, guid: 9836e18f4b3db1d49aeee5b1775d7b46,
-    type: 3}
-  m_PrefabInstance: {fileID: 7871728110837160172}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &943323492
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 943323487}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 52309790d79e02a47b03dba7d8f81d73, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Textbox: {fileID: 873104851}
-  Description: Cause an Inksplotion with MAG to deal staining damage
---- !u!1 &991134182 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5575371100435437117, guid: 9836e18f4b3db1d49aeee5b1775d7b46,
-    type: 3}
-  m_PrefabInstance: {fileID: 7871728110837160172}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &991134187
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 991134182}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 52309790d79e02a47b03dba7d8f81d73, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Textbox: {fileID: 873104851}
-  Description: Rip the enemy at high speeds using SPD to increase damage
---- !u!1 &1244665874 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5575371100230123915, guid: 9836e18f4b3db1d49aeee5b1775d7b46,
-    type: 3}
-  m_PrefabInstance: {fileID: 7871728110837160172}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1244665879
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1244665874}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 52309790d79e02a47b03dba7d8f81d73, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Textbox: {fileID: 873104851}
-  Description: Crumple the enemy with your MAG to decrease their DEF
 --- !u!1 &1654195184 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3359507550413201427, guid: ceb5be71c24704849a5fe4a2c0e33ed3,
@@ -586,14 +454,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2034630230, guid: 1ba26c84b9e136649a48ef1e17abb736, type: 3}
-      propertyPath: Background
-      value: 
-      objectReference: {fileID: 21300000, guid: 3192650295dc4644eba3e7409f81eb2c,
-        type: 3}
     - target: {fileID: 2034630232, guid: 1ba26c84b9e136649a48ef1e17abb736, type: 3}
       propertyPath: ATK
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2034630232, guid: 1ba26c84b9e136649a48ef1e17abb736, type: 3}
+      propertyPath: HP
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1ba26c84b9e136649a48ef1e17abb736, type: 3}
@@ -669,6 +536,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3359507550413201425, guid: ceb5be71c24704849a5fe4a2c0e33ed3,
+        type: 3}
+      propertyPath: ATK
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ceb5be71c24704849a5fe4a2c0e33ed3, type: 3}
 --- !u!1001 &7871728110837160172
@@ -682,11 +554,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Finished Combat UI
-      objectReference: {fileID: 0}
-    - target: {fileID: 5575371099439000435, guid: 9836e18f4b3db1d49aeee5b1775d7b46,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5575371099439000439, guid: 9836e18f4b3db1d49aeee5b1775d7b46,
         type: 3}
@@ -798,93 +665,10 @@ PrefabInstance:
       propertyPath: Player
       value: 
       objectReference: {fileID: 895594592}
-    - target: {fileID: 8911430982438776621, guid: 9836e18f4b3db1d49aeee5b1775d7b46,
+    - target: {fileID: 5575371100684026790, guid: 9836e18f4b3db1d49aeee5b1775d7b46,
         type: 3}
-      propertyPath: Enemies.Array.data[0]
-      value: 
-      objectReference: {fileID: 7871728110837160175}
-    - target: {fileID: 8911430982438776621, guid: 9836e18f4b3db1d49aeee5b1775d7b46,
-        type: 3}
-      propertyPath: Enemies.Array.data[1]
-      value: 
-      objectReference: {fileID: 7871728110837160174}
-    - target: {fileID: 8911430982438776621, guid: 9836e18f4b3db1d49aeee5b1775d7b46,
-        type: 3}
-      propertyPath: Enemies.Array.data[2]
-      value: 
-      objectReference: {fileID: 7871728110837160173}
-    - target: {fileID: 8911430982438776621, guid: 9836e18f4b3db1d49aeee5b1775d7b46,
-        type: 3}
-      propertyPath: Boss
-      value: 
-      objectReference: {fileID: 7871728110837160176}
-    - target: {fileID: 8911430982438776621, guid: 9836e18f4b3db1d49aeee5b1775d7b46,
-        type: 3}
-      propertyPath: EnemyImages.Array.data[0]
-      value: 
-      objectReference: {fileID: 7871728110837160175}
-    - target: {fileID: 8911430982438776621, guid: 9836e18f4b3db1d49aeee5b1775d7b46,
-        type: 3}
-      propertyPath: EnemyImages.Array.data[1]
-      value: 
-      objectReference: {fileID: 7871728110837160174}
-    - target: {fileID: 8911430982438776621, guid: 9836e18f4b3db1d49aeee5b1775d7b46,
-        type: 3}
-      propertyPath: EnemyImages.Array.data[2]
-      value: 
-      objectReference: {fileID: 7871728110837160173}
-    - target: {fileID: 5575371099776796252, guid: 9836e18f4b3db1d49aeee5b1775d7b46,
-        type: 3}
-      propertyPath: m_Name
-      value: Boss Position
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: FleeAnnounce
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9836e18f4b3db1d49aeee5b1775d7b46, type: 3}
---- !u!114 &7871728110837160173 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5575371099622178611, guid: 9836e18f4b3db1d49aeee5b1775d7b46,
-    type: 3}
-  m_PrefabInstance: {fileID: 7871728110837160172}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &7871728110837160174 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5575371099099086795, guid: 9836e18f4b3db1d49aeee5b1775d7b46,
-    type: 3}
-  m_PrefabInstance: {fileID: 7871728110837160172}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &7871728110837160175 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5575371099056334476, guid: 9836e18f4b3db1d49aeee5b1775d7b46,
-    type: 3}
-  m_PrefabInstance: {fileID: 7871728110837160172}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &7871728110837160176 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5575371099776796254, guid: 9836e18f4b3db1d49aeee5b1775d7b46,
-    type: 3}
-  m_PrefabInstance: {fileID: 7871728110837160172}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

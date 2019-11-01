@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class Combat_Controller : MonoBehaviour
@@ -28,6 +29,7 @@ public class Combat_Controller : MonoBehaviour
     private bool isPhys, isAttack;
     private int StatUsed, StatTarget, Damage, MaxHP, Choice;
     private double Modifier;
+    private int BossCounter = 3;
 
     private PlayerController2 PC2;
     private Player_Stats PS;
@@ -52,6 +54,10 @@ public class Combat_Controller : MonoBehaviour
             GetEnemy();
             CombatStart();
         }
+        if(BossCounter == 0)
+        {
+            SceneManager.LoadScene("Credits");
+        }
     }
 
     private void GetEnemy()
@@ -65,14 +71,16 @@ public class Combat_Controller : MonoBehaviour
             EC = Enemy.GetComponent<EnemyController>();
             Background.sprite = EC.SetBackground();
             BossImage.enabled = false;
+            EnemyImages[0].enabled = EnemyImages[1].enabled = EnemyImages[2].enabled = true;
             EnemyImages[0].sprite = EnemyImages[1].sprite = EnemyImages[2].sprite = EC.SetBattleSprite();
         }
         else
         {
             BC = Enemy.GetComponent<BossController>();
             Background.sprite = BC.SetBackground();
-            BossImage.sprite = BC.SetBattleSprite();
             EnemyImages[0].enabled = EnemyImages[1].enabled = EnemyImages[2].enabled = false;
+            BossImage.enabled = true;
+            BossImage.sprite = BC.SetBattleSprite();           
         }
     }
 
@@ -97,8 +105,8 @@ public class Combat_Controller : MonoBehaviour
     public void GetInput(int choice)
     {
         Choice = choice;
-        //Debug.Log("Player Health: " + PlayerStats[0]);
-        //Debug.Log("Slime Health: " + MobStats[0]);
+        Debug.Log("Player Health: " + PlayerStats[0]);
+        Debug.Log("Slime Health: " + MobStats[0]);
         foreach(Button button in buttons)
         {
             button.gameObject.SetActive(false);
@@ -256,12 +264,21 @@ public class Combat_Controller : MonoBehaviour
     /// </summary>
     private void CombatEnd()
     {
+        if (Enemy.name.Contains("Slime"))
+        {
+
+        }
+        else
+        {
+            BossCounter--;
+        }
         this.gameObject.SetActive(false);
         Enemy.GetComponent<BoxCollider2D>().enabled = false;
         Enemy.GetComponent<SpriteRenderer>().enabled = false;
         PS.EXP += MS.EXP;
         PC2.InCombat = false;
         isInCombat = false;
+
         //Debug.Log("Combat has Ended!");
         //for(int i=0;i<PlayerStats.Length;i++)
         //{
@@ -282,7 +299,6 @@ public class Combat_Controller : MonoBehaviour
     {
         textbox.text = "";
         this.gameObject.SetActive(false);
-        Enemy.GetComponent<EnemyController>().enabled = true;
         Enemy.GetComponent<BoxCollider2D>().enabled = false;
         isInCombat = false;
         PC2.InCombat = false;
@@ -295,7 +311,7 @@ public class Combat_Controller : MonoBehaviour
 
     private void GameOver()
     {
-        Debug.Log("DEAD");
+        SceneManager.LoadScene("Game Over");
     }
     /// <summary>
     /// Converts attackinfo into usable variables for actions
