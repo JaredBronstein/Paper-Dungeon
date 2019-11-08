@@ -12,7 +12,7 @@ public class EnemyTrigger : MonoBehaviour
     {
         if(collision.gameObject == Trigger)
         {
-            isActive = false;
+            isActive = true;
         }
     }
     private void OnTriggerExit2D(Collider2D collision)

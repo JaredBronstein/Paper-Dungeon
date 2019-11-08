@@ -26,7 +26,7 @@ public class Combat_Controller : MonoBehaviour
     private int[] MobStats = new int[7];
 
     private bool isInCombat = false;
-    private bool isPhys, isAttack;
+    private bool isPhys, isAttack, hasInput;
     private int StatUsed, StatTarget, Damage, MaxHP, Choice;
     private double Modifier;
     private int BossCounter = 3;
@@ -37,7 +37,6 @@ public class Combat_Controller : MonoBehaviour
     private EnemyController EC;
     private BossController BC;
 
-    public int input;
     #endregion
 
     private void Awake()
@@ -107,13 +106,18 @@ public class Combat_Controller : MonoBehaviour
     /// <param name="choice">Button input is passed into this</param>
     private void GetInput()
     {
-        Debug.Log("Player Health: " + PlayerStats[0]);
-        Debug.Log("Slime Health: " + MobStats[0]);
-        foreach(Button button in buttons)
+        if(!hasInput)
         {
-            button.gameObject.SetActive(false);
+            hasInput = true;
+            Debug.Log("Player Health: " + PlayerStats[0]);
+            Debug.Log("Slime Health: " + MobStats[0]);
+            foreach (Button button in buttons)
+            {
+                button.gameObject.SetActive(false);
+            }
+            Invoke("ActionOne", 1.0f);
         }
-        Invoke("ActionOne", 1.0f);
+
     }
     /// <summary>
     /// Checks who goes first, and if anyone died game over or victory respectively.
@@ -170,6 +174,7 @@ public class Combat_Controller : MonoBehaviour
     }
     private void ReEnableButtons()
     {
+        hasInput = false;
         foreach (Button button in buttons)
         {
             button.gameObject.SetActive(true);
@@ -275,7 +280,11 @@ public class Combat_Controller : MonoBehaviour
             BossCounter--;
         }
         this.gameObject.SetActive(false);
-        Enemy.GetComponent<BoxCollider2D>().enabled = false;
+        for(int i = 0; i < Enemy.GetComponents<BoxCollider2D>().Length; i++ )
+        {
+            if(Enemy.GetComponents<BoxCollider2D>()[i] != null)
+            Enemy.GetComponents<BoxCollider2D>()[i].enabled = false;
+        }
         Enemy.GetComponent<SpriteRenderer>().enabled = false;
         PS.EXP += MS.EXP;
         PC2.InCombat = false;
