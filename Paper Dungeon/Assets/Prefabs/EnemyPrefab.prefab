@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 845267314959900707}
   - component: {fileID: 845267314959900709}
-  - component: {fileID: 845267314959900708}
   m_Layer: 0
   m_Name: BorderT
   m_TagString: Untagged
@@ -58,20 +57,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 0.01}
   m_EdgeRadius: 0
---- !u!114 &845267314959900708
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 845267314959900706}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 18642b20785dd8d4eb269c36630b22e2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isActive: 1
-  Trigger: {fileID: 845267316843588095}
 --- !u!1 &845267314961754909
 GameObject:
   m_ObjectHideFlags: 0
@@ -82,7 +67,6 @@ GameObject:
   m_Component:
   - component: {fileID: 845267314961754910}
   - component: {fileID: 845267314961754911}
-  - component: {fileID: 845267314961754896}
   m_Layer: 0
   m_Name: BorderR
   m_TagString: Untagged
@@ -130,20 +114,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.01, y: 1}
   m_EdgeRadius: 0
---- !u!114 &845267314961754896
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 845267314961754909}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 18642b20785dd8d4eb269c36630b22e2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isActive: 1
-  Trigger: {fileID: 845267315778774900}
 --- !u!1 &845267315088820577
 GameObject:
   m_ObjectHideFlags: 0
@@ -273,14 +243,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterSpeed: 0.02
   characterPosition: {fileID: 845267315088820579}
-  LeftBorder: {fileID: 845267316437636592}
-  RightBorder: {fileID: 845267314961754909}
-  TopBorder: {fileID: 845267314959900706}
-  BottomBorder: {fileID: 845267316294518131}
+  LeftBorder: {fileID: 845267316461958654}
+  RightBorder: {fileID: 845267315778774900}
+  TopBorder: {fileID: 845267316843588095}
+  BottomBorder: {fileID: 845267316364038487}
   Grey: {fileID: -7060523541247738292, guid: b563e50d6ce4fbf4c9aee7337a9e0e32, type: 3}
   Yellow: {fileID: 8712805358186729586, guid: b563e50d6ce4fbf4c9aee7337a9e0e32, type: 3}
   Red: {fileID: 2390474335770192810, guid: b563e50d6ce4fbf4c9aee7337a9e0e32, type: 3}
   Background: {fileID: 21300000, guid: 3192650295dc4644eba3e7409f81eb2c, type: 3}
+  CanLeft: 0
+  CanRight: 0
+  CanUp: 0
+  CanDown: 0
 --- !u!114 &2034630232
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -293,14 +267,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13f1463d7ca730c49b6bfd2825b3388a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HP: 5
+  HP: 3
   MP: 0
-  ATK: 1
-  DEF: 0
+  ATK: 2
+  DEF: 2
   MAG: 0
   WIS: 0
   SPD: 1
-  EXP: 1
+  EXP: 2
   AttackList:
   - 
   - 
@@ -363,7 +337,7 @@ GameObject:
   - component: {fileID: 845267315670869817}
   m_Layer: 0
   m_Name: EnemyPrefab
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -394,6 +368,7 @@ GameObject:
   m_Component:
   - component: {fileID: 845267315778774901}
   - component: {fileID: 845267315778774903}
+  - component: {fileID: 608853880002884440}
   m_Layer: 0
   m_Name: RightTrigger
   m_TagString: Boundary
@@ -431,6 +406,19 @@ CircleCollider2D:
   m_Offset: {x: 0.08, y: 0}
   serializedVersion: 2
   m_Radius: 0.05
+--- !u!114 &608853880002884440
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 845267315778774900}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18642b20785dd8d4eb269c36630b22e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isActive: 1
 --- !u!1 &845267316294518131
 GameObject:
   m_ObjectHideFlags: 0
@@ -441,7 +429,6 @@ GameObject:
   m_Component:
   - component: {fileID: 845267316294518132}
   - component: {fileID: 845267316294518134}
-  - component: {fileID: 845267316294518133}
   m_Layer: 0
   m_Name: BorderB
   m_TagString: Untagged
@@ -489,20 +476,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 0.01}
   m_EdgeRadius: 0
---- !u!114 &845267316294518133
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 845267316294518131}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 18642b20785dd8d4eb269c36630b22e2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isActive: 1
-  Trigger: {fileID: 845267316364038487}
 --- !u!1 &845267316364038487
 GameObject:
   m_ObjectHideFlags: 0
@@ -513,6 +486,7 @@ GameObject:
   m_Component:
   - component: {fileID: 845267316364038504}
   - component: {fileID: 845267316364038506}
+  - component: {fileID: 236419360005924708}
   m_Layer: 0
   m_Name: BottomTrigger
   m_TagString: Boundary
@@ -550,6 +524,19 @@ CircleCollider2D:
   m_Offset: {x: 0, y: -0.08}
   serializedVersion: 2
   m_Radius: 0.05
+--- !u!114 &236419360005924708
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 845267316364038487}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18642b20785dd8d4eb269c36630b22e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isActive: 1
 --- !u!1 &845267316437636592
 GameObject:
   m_ObjectHideFlags: 0
@@ -560,7 +547,6 @@ GameObject:
   m_Component:
   - component: {fileID: 845267316437636593}
   - component: {fileID: 845267316437636595}
-  - component: {fileID: 845267316437636594}
   m_Layer: 0
   m_Name: BorderL
   m_TagString: Untagged
@@ -608,20 +594,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.01, y: 1}
   m_EdgeRadius: 0
---- !u!114 &845267316437636594
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 845267316437636592}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 18642b20785dd8d4eb269c36630b22e2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isActive: 1
-  Trigger: {fileID: 845267316461958654}
 --- !u!1 &845267316461958654
 GameObject:
   m_ObjectHideFlags: 0
@@ -632,6 +604,7 @@ GameObject:
   m_Component:
   - component: {fileID: 845267316461958655}
   - component: {fileID: 845267316461958641}
+  - component: {fileID: 4403952552156744267}
   m_Layer: 0
   m_Name: LeftTrigger
   m_TagString: Boundary
@@ -669,6 +642,19 @@ CircleCollider2D:
   m_Offset: {x: -0.08, y: 0}
   serializedVersion: 2
   m_Radius: 0.05
+--- !u!114 &4403952552156744267
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 845267316461958654}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18642b20785dd8d4eb269c36630b22e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isActive: 1
 --- !u!1 &845267316819004324
 GameObject:
   m_ObjectHideFlags: 0
@@ -713,6 +699,7 @@ GameObject:
   m_Component:
   - component: {fileID: 845267316843588080}
   - component: {fileID: 845267316843588082}
+  - component: {fileID: 1703356329530175779}
   m_Layer: 0
   m_Name: TopTrigger
   m_TagString: Boundary
@@ -750,3 +737,16 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0.08}
   serializedVersion: 2
   m_Radius: 0.05
+--- !u!114 &1703356329530175779
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 845267316843588095}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18642b20785dd8d4eb269c36630b22e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isActive: 1

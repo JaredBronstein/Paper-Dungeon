@@ -11,7 +11,9 @@ public class Combat_Controller : MonoBehaviour
     [SerializeField]
     private GameObject Player;
     [SerializeField]
-    private Text textbox;
+    private Text Textbox;
+    [SerializeField]
+    private Text[] StatText = new Text[6];
     [SerializeField]
     private Button[] buttons = new Button[6];
     [SerializeField]
@@ -97,7 +99,8 @@ public class Combat_Controller : MonoBehaviour
         PlayerStats = PS.StatReturn();
         MobStats = MS.StatReturn();
         MaxHP = PlayerStats[0];
-        textbox.text = "A wild " + Enemy.name + " has appeared!";
+        Textbox.text = "A wild " + Enemy.name + " has appeared!";
+        StatUpdate();
     }
 
     /// <summary>
@@ -106,7 +109,8 @@ public class Combat_Controller : MonoBehaviour
     /// <param name="choice">Button input is passed into this</param>
     private void GetInput()
     {
-        if(!hasInput)
+        StatUpdate();
+        if (!hasInput)
         {
             hasInput = true;
             Debug.Log("Player Health: " + PlayerStats[0]);
@@ -148,6 +152,7 @@ public class Combat_Controller : MonoBehaviour
                 Invoke("ActionTwo", 2.0f);
             }
         }
+        StatUpdate();
     }
     /// <summary>
     /// Check who goes second, same rules apply from ActionOne()
@@ -170,6 +175,7 @@ public class Combat_Controller : MonoBehaviour
                 Invoke("Win", 1.0f);
             }
         }
+        StatUpdate();
         Invoke("ReEnableButtons", 1.0f);
     }
     private void ReEnableButtons()
@@ -189,7 +195,7 @@ public class Combat_Controller : MonoBehaviour
         //Debug.Log(AttackInfo[0] + " " + AttackInfo[1] + " " + AttackInfo[2] + " " + AttackInfo[3] + " " + AttackInfo[4] + " " + AttackInfo[5]);
         ConvertAttack();
         //Debug.Log("Player uses " + AttackInfo[0]);
-        textbox.text = "Player uses " + AttackInfo[0];
+        Textbox.text = "Player uses " + AttackInfo[0];
         Invoke("PlayerActionCommit", 1.0f);
     }
     /// <summary>
@@ -209,7 +215,7 @@ public class Combat_Controller : MonoBehaviour
             }
             MobStats[StatTarget] -= Damage;
             //Debug.Log("Player does " + Damage + " damage.");
-            textbox.text = "Player does " + Damage + " damage.";
+            Textbox.text = "Player does " + Damage + " damage.";
         }
         else
         {
@@ -228,7 +234,7 @@ public class Combat_Controller : MonoBehaviour
         AttackInfo = MS.Attack(0);
         ConvertAttack();
         //Debug.Log(Enemy.name + " uses " + AttackInfo[0]);
-        textbox.text = Enemy.name + " uses " + AttackInfo[0];
+        Textbox.text = Enemy.name + " uses " + AttackInfo[0];
         Invoke("MobActionCommit", 1.0f);
     }
     /// <summary>
@@ -248,7 +254,7 @@ public class Combat_Controller : MonoBehaviour
             }
             PlayerStats[StatTarget] -= Damage;
             //Debug.Log(Enemy.name + " does " + Damage + " damage.");
-            textbox.text = Enemy.name + " does " + Damage + " damage.";
+            Textbox.text = Enemy.name + " does " + Damage + " damage.";
         }
         else
         {
@@ -258,12 +264,12 @@ public class Combat_Controller : MonoBehaviour
 
     private void Win()
     {
-        textbox.text = "You win! You gained  " + MS.EXP + " experience points";
+        Textbox.text = "You win! You gained  " + MS.EXP + " experience points";
         Invoke("CombatEnd", 1.0f);
     }
     private void Lose()
     {
-        textbox.text = "You have been defeated. You lose.";
+        Textbox.text = "You have been defeated. You lose.";
         Invoke("GameOver", 1.0f);
     }
     /// <summary>
@@ -303,12 +309,12 @@ public class Combat_Controller : MonoBehaviour
 
     public void FleeAnnounce()
     {
-        textbox.text = "You ran away safely";
+        Textbox.text = "You ran away safely";
         Invoke("FleeCommit", 1.0f);
     }
     private void FleeCommit()
     {
-        textbox.text = "";
+        Textbox.text = "";
         this.gameObject.SetActive(false);
         Enemy.GetComponent<BoxCollider2D>().enabled = false;
         isInCombat = false;
@@ -341,5 +347,14 @@ public class Combat_Controller : MonoBehaviour
     {
         Choice = choice;
         Invoke("GetInput", 2.0f);
+    }
+    private void StatUpdate()
+    {
+        StatText[0].text = "HP: " + PlayerStats[0] + "/" + MaxHP;
+        StatText[1].text = "ATK: " + PlayerStats[2];
+        StatText[2].text = "DEF: " + PlayerStats[3];
+        StatText[3].text = "MAG: " + PlayerStats[4];
+        StatText[4].text = "WIS: " + PlayerStats[5];
+        StatText[5].text = "SPD: " + PlayerStats[6];
     }
 }

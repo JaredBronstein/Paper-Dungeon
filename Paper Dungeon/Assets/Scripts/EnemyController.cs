@@ -15,7 +15,7 @@ public class EnemyController : UnitMoveI
     private Mob_Stats stats;
 
     private int Direction;
-    private bool CanLeft, CanRight, CanUp, CanDown;
+    public bool CanLeft, CanRight, CanUp, CanDown;
 
     private void Awake()
     {
