@@ -8,14 +8,16 @@ public class EnemyController : UnitMoveI
     [SerializeField]
     private GameObject LeftBorder, RightBorder, TopBorder, BottomBorder;
     [SerializeField]
-    private Sprite Grey, Yellow, Red, Background;
+    private Sprite[] Grey = new Sprite[3], Yellow = new Sprite[3], Red = new Sprite[3];
+    [SerializeField]
+    private Sprite Background;
 
     private SpriteRenderer slimeRenderer;
     private Animator slimeAnimator;
     private Mob_Stats stats;
 
     private int Direction;
-    public bool CanLeft, CanRight, CanUp, CanDown;
+    private bool CanLeft, CanRight, CanUp, CanDown;
 
     private void Awake()
     {
@@ -52,7 +54,7 @@ public class EnemyController : UnitMoveI
     /// Sets the sprite in the Combat UI
     /// </summary>
     /// <returns>The Sprite</returns>
-    public Sprite SetBattleSprite()
+    public Sprite[] SetBattleSprite()
     {
         if (stats.StatReturn()[2] >= 4)
         {

@@ -5,7 +5,9 @@ using UnityEngine;
 public class BossController : MonoBehaviour
 {
     [SerializeField]
-    private Sprite BossSprite, Background;
+    private Sprite[] BossSprite = new Sprite[3]; 
+    [SerializeField]
+    private Sprite Background;
 
     private Animator animator;
 
@@ -20,7 +22,7 @@ public class BossController : MonoBehaviour
         animator.SetBool("CanBlink", true);
         animator.SetBool("CanBlink", false);
     }
-    public Sprite SetBattleSprite()
+    public Sprite[] SetBattleSprite()
     {
         return BossSprite;
     }

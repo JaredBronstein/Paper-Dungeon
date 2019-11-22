@@ -247,9 +247,18 @@ MonoBehaviour:
   RightBorder: {fileID: 845267315778774900}
   TopBorder: {fileID: 845267316843588095}
   BottomBorder: {fileID: 845267316364038487}
-  Grey: {fileID: -7060523541247738292, guid: b563e50d6ce4fbf4c9aee7337a9e0e32, type: 3}
-  Yellow: {fileID: 8712805358186729586, guid: b563e50d6ce4fbf4c9aee7337a9e0e32, type: 3}
-  Red: {fileID: 2390474335770192810, guid: b563e50d6ce4fbf4c9aee7337a9e0e32, type: 3}
+  Grey:
+  - {fileID: -7060523541247738292, guid: b563e50d6ce4fbf4c9aee7337a9e0e32, type: 3}
+  - {fileID: 4464646374819227328, guid: b563e50d6ce4fbf4c9aee7337a9e0e32, type: 3}
+  - {fileID: 4541053745822378963, guid: b563e50d6ce4fbf4c9aee7337a9e0e32, type: 3}
+  Yellow:
+  - {fileID: 8712805358186729586, guid: b563e50d6ce4fbf4c9aee7337a9e0e32, type: 3}
+  - {fileID: 3011085932758638942, guid: b563e50d6ce4fbf4c9aee7337a9e0e32, type: 3}
+  - {fileID: -1812079731435191230, guid: b563e50d6ce4fbf4c9aee7337a9e0e32, type: 3}
+  Red:
+  - {fileID: 2390474335770192810, guid: b563e50d6ce4fbf4c9aee7337a9e0e32, type: 3}
+  - {fileID: 8763084902731547229, guid: b563e50d6ce4fbf4c9aee7337a9e0e32, type: 3}
+  - {fileID: 8729376513099933711, guid: b563e50d6ce4fbf4c9aee7337a9e0e32, type: 3}
   Background: {fileID: 21300000, guid: 3192650295dc4644eba3e7409f81eb2c, type: 3}
   CanLeft: 0
   CanRight: 0

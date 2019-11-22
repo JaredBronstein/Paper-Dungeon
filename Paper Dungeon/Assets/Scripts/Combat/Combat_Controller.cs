@@ -28,8 +28,8 @@ public class Combat_Controller : MonoBehaviour
     private int[] MobStats = new int[7];
 
     private bool isInCombat = false;
-    private bool isPhys, isAttack, hasInput;
-    private int StatUsed, StatTarget, Damage, MaxHP, Choice;
+    private bool isPhys, isAttack, hasInput, isBoss;
+    private int StatUsed, StatTarget, Damage, MaxPlayerHP, MaxEnemyHP, Choice, PlayerDamage;
     private double Modifier;
     private int BossCounter = 3;
 
@@ -38,6 +38,7 @@ public class Combat_Controller : MonoBehaviour
     private Mob_Stats MS;
     private EnemyController EC;
     private BossController BC;
+    private Sprite[] BattleSprite = new Sprite[3];
 
     #endregion
 
@@ -53,14 +54,11 @@ public class Combat_Controller : MonoBehaviour
         //Checks to see if the player is in combat and the combat UI isn't on. If true, begin combat
         if (PC2.InCombat && !isInCombat)
         {
+            PlayerDamage = 0;
             isInCombat = true;
             ReEnableButtons();
             GetEnemy();
             CombatStart();
-        }
-        if(BossCounter == 0)
-        {
-            SceneManager.LoadScene("Credits");
         }
     }
 
@@ -72,19 +70,61 @@ public class Combat_Controller : MonoBehaviour
         //If it's a boss, make the background spooky, disable the enemy images, and set the boss sprite to the boss.
         if(Enemy.name.Contains("Slime"))
         {
-            EC = Enemy.GetComponent<EnemyController>();
-            Background.sprite = EC.SetBackground();
-            BossImage.enabled = false;
-            EnemyImages[0].enabled = EnemyImages[1].enabled = EnemyImages[2].enabled = true;
-            EnemyImages[0].sprite = EnemyImages[1].sprite = EnemyImages[2].sprite = EC.SetBattleSprite();
+            isBoss = false;
+            EnemySetup();
         }
         else
         {
-            BC = Enemy.GetComponent<BossController>();
-            Background.sprite = BC.SetBackground();
-            EnemyImages[0].enabled = EnemyImages[1].enabled = EnemyImages[2].enabled = false;
-            BossImage.enabled = true;
-            BossImage.sprite = BC.SetBattleSprite();           
+            isBoss = true;
+            BossSetup();
+        }
+    }
+    private void EnemySetup()
+    {
+        EC = Enemy.GetComponent<EnemyController>();
+        Background.sprite = EC.SetBackground();
+        BattleSprite = EC.SetBattleSprite();
+        BossImage.enabled = false;
+        EnemyImages[0].enabled = EnemyImages[1].enabled = EnemyImages[2].enabled = true;
+        EnemyImages[0].sprite = EnemyImages[1].sprite = EnemyImages[2].sprite = BattleSprite[0];
+    }
+    private void BossSetup()
+    {      
+        BC = Enemy.GetComponent<BossController>();
+        Background.sprite = BC.SetBackground();
+        BattleSprite = BC.SetBattleSprite();
+        EnemyImages[0].enabled = EnemyImages[1].enabled = EnemyImages[2].enabled = false;
+        BossImage.enabled = true;
+        BossImage.sprite = BattleSprite[0];
+    }
+    private void EnemySpriteUpdate()
+    {
+        if (PlayerDamage >= Convert.ToInt32(MaxEnemyHP * 2 / 3))
+        {
+            EnemyImages[0].sprite = EnemyImages[1].sprite = EnemyImages[2].sprite = BattleSprite[2];
+        }
+        else if (PlayerDamage >= Convert.ToInt32(MaxEnemyHP / 3))
+        {
+            EnemyImages[0].sprite = EnemyImages[1].sprite = EnemyImages[2].sprite = BattleSprite[1];
+        }
+        else
+        {
+            EnemyImages[0].sprite = EnemyImages[1].sprite = EnemyImages[2].sprite = BattleSprite[0];
+        }
+    }
+    private void BossSpriteUpdate()
+    {
+        if (PlayerDamage >= Convert.ToInt32(MaxEnemyHP * 2 / 3))
+        {
+            BossImage.sprite = BattleSprite[2];
+        }
+        else if (PlayerDamage >= Convert.ToInt32(MaxEnemyHP / 3))
+        {
+           BossImage.sprite = BattleSprite[1];
+        }
+        else
+        {
+            BossImage.sprite = BattleSprite[0];
         }
     }
 
@@ -98,23 +138,35 @@ public class Combat_Controller : MonoBehaviour
         }
         PlayerStats = PS.StatReturn();
         MobStats = MS.StatReturn();
-        MaxHP = PlayerStats[0];
+        MaxPlayerHP = PlayerStats[0];
+        MaxEnemyHP = MobStats[0];
         Textbox.text = "A wild " + Enemy.name + " has appeared!";
         StatUpdate();
     }
-
+    private void SelectSprite()
+    {
+        if (isBoss)
+        {
+            BossSpriteUpdate();
+        }
+        else
+        {
+            EnemySpriteUpdate();
+        }            
+    }
     /// <summary>
     /// Gets the Players input and starts the sequence. First it disables buttons, does the first action, then the second, then re-enables the buttons for the next turn
     /// </summary>
     /// <param name="choice">Button input is passed into this</param>
     private void GetInput()
     {
+        SelectSprite();
         StatUpdate();
         if (!hasInput)
         {
             hasInput = true;
             Debug.Log("Player Health: " + PlayerStats[0]);
-            Debug.Log("Slime Health: " + MobStats[0]);
+            Debug.Log("Enemy Health: " + MobStats[0]);
             foreach (Button button in buttons)
             {
                 button.gameObject.SetActive(false);
@@ -128,54 +180,34 @@ public class Combat_Controller : MonoBehaviour
     /// </summary>
     private void ActionOne()
     {
+        StatUpdate();
+        SelectSprite();
         if (PlayerStats[6] >= MobStats[6])
         {
             PlayerActionAnnounce();
-            if (MobStats[0] <= 0)
-            {
-                Invoke("Win", 1.0f);
-            }
-            else
-            {
-                Invoke("ActionTwo", 2.0f);
-            }
+            Invoke("ActionTwo", 2.0f);
         }
         else
         {
             MobActionAnnounce();
-            if (PlayerStats[0] <= 0)
-            {
-                Invoke("Lose", 1.0f);
-            }
-            else
-            {
-                Invoke("ActionTwo", 2.0f);
-            }
+            Invoke("ActionTwo", 2.0f);
         }
-        StatUpdate();
     }
     /// <summary>
     /// Check who goes second, same rules apply from ActionOne()
     /// </summary>
     private void ActionTwo()
     {
+        StatUpdate();
+        SelectSprite();
         if (PlayerStats[6] >= MobStats[6])
         {
             MobActionAnnounce();
-            if (PlayerStats[0] <= 0)
-            {
-                Invoke("Lose", 1.0f);
-            }
         }
         else
         {
-            PlayerActionAnnounce();
-            if (MobStats[0] <= 0)
-            {
-                Invoke("Win", 1.0f);
-            }
+            PlayerActionAnnounce();            
         }
-        StatUpdate();
         Invoke("ReEnableButtons", 1.0f);
     }
     private void ReEnableButtons()
@@ -214,16 +246,22 @@ public class Combat_Controller : MonoBehaviour
                 Damage = Convert.ToInt32(PlayerStats[StatUsed] * Modifier - MobStats[5]);
             }
             MobStats[StatTarget] -= Damage;
+            PlayerDamage += Damage;
             //Debug.Log("Player does " + Damage + " damage.");
             Textbox.text = "Player does " + Damage + " damage.";
+            SelectSprite();
+            if (MobStats[0] <= 0)
+            {
+                Win();
+            }
         }
         else
         {
             PlayerStats[StatTarget] += Convert.ToInt32(PlayerStats[StatUsed] * Modifier);
         }
-        if (PlayerStats[0] > MaxHP)
+        if (PlayerStats[0] > MaxPlayerHP)
         {
-            PlayerStats[0] = MaxHP;
+            PlayerStats[0] = MaxPlayerHP;
         }
     }
     /// <summary>
@@ -260,6 +298,10 @@ public class Combat_Controller : MonoBehaviour
         {
             MobStats[StatTarget] += Convert.ToInt32(MobStats[StatUsed] * Modifier);
         }
+        if (PlayerStats[0] <= 0)
+        {
+            Lose();
+        }
     }
 
     private void Win()
@@ -284,6 +326,11 @@ public class Combat_Controller : MonoBehaviour
         else
         {
             BossCounter--;
+            Debug.Log("There are " + BossCounter + " bosses remaining");
+            if (BossCounter <= 0)
+            {
+                SceneManager.LoadScene("Credits");
+            }
         }
         this.gameObject.SetActive(false);
         for(int i = 0; i < Enemy.GetComponents<BoxCollider2D>().Length; i++ )
@@ -350,7 +397,7 @@ public class Combat_Controller : MonoBehaviour
     }
     private void StatUpdate()
     {
-        StatText[0].text = "HP: " + PlayerStats[0] + "/" + MaxHP;
+        StatText[0].text = "HP: " + PlayerStats[0] + "/" + MaxPlayerHP;
         StatText[1].text = "ATK: " + PlayerStats[2];
         StatText[2].text = "DEF: " + PlayerStats[3];
         StatText[3].text = "MAG: " + PlayerStats[4];
