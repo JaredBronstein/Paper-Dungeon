@@ -10,4 +10,5 @@ public class LoadAScene : MonoBehaviour
     {
         SceneManager.LoadScene(SceneIndex);
     }
+    
 }
